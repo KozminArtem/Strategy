@@ -1,11 +1,9 @@
-//{}}{{}{}{}{
 //  main.cpp
 //  units
 //
 //  Created by Артем Козьмин on 29/11/2018.
 //  Copyright © 2018 Артем Козьмин. All rights reserved.
-//
-//хахахаxxxxxxxx
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -45,14 +43,14 @@ public:
             cout << "SPEED 1 units:"<< SPEED << endl;
             cout << "QUANTITY units:"<< QUANTITY << endl;
             cout << "SQUAD_HEALTH units:"<< SQUAD_HEALTH << endl;
-            
+
             cout << "Number counter: " << counter << endl<<endl;
         }
     }
-    
-    
+
+
     //ВЗЯЛИ
-    
+
     string GetNAME(void) const{return NAME;}
     size_t GetHEALTH(void) const{return HEALTH;}
     size_t GetDAMAGE(void) const{return DAMAGE;}
@@ -61,7 +59,7 @@ public:
     size_t GetQUANTITY(void) const{return QUANTITY;}
     size_t GetSQUAD_HEALTH(void) const{return SQUAD_HEALTH;}
     loc_t GetHEROES(void) const{return HEROES;}
-    
+
     //ПОЛОЖИЛИ
     string SetNAME(string str){
         NAME = str;
@@ -84,8 +82,8 @@ public:
     size_t SetSQUAD_HEALTH(size_t squad_health) {
         SQUAD_HEALTH = squad_health;
         return SQUAD_HEALTH;}
-    
-    
+
+
     //Поступило в отряд
     virtual size_t Squad_Reinforcement(size_t Beginner) {
         QUANTITY=QUANTITY+Beginner;
@@ -102,7 +100,7 @@ public:
         }
         return QUANTITY;
     }
-    
+
     virtual ~Units(){
         if(debug){
             cout << NAME << " ,Units died, in quantity " << QUANTITY <<endl<<endl;
@@ -116,7 +114,7 @@ public:
 //МИРНЫЕ ЖИТЕЛИ
 
 class Civilians : public Units{
-    
+
 public:
     Civilians(loc_t heroes = 0, string name = "Civilians",size_t damage  = 0,size_t type_damage = 0, size_t speed = 0, size_t quantity = 0,size_t health = 0, size_t squad_health = 0) : Units(heroes, name, damage, type_damage, speed, quantity, health, squad_health)
     {
@@ -131,12 +129,12 @@ public:
             cout << "SPEED 1 units:"<< GetSPEED() << endl;
             cout << "QUANTITY units:"<< GetQUANTITY() << endl;
             cout << "SQUAD_HEALTH units:"<< GetSQUAD_HEALTH() << endl << endl;
-            
+
         }
     }
-    
-    
-    
+
+
+
     virtual size_t Squad_Reinforcement(size_t Beginner) {
         SetQUANTITY(GetQUANTITY()+Beginner);
         SetSQUAD_HEALTH(GetSQUAD_HEALTH() + Beginner*GetHEALTH());
@@ -151,8 +149,8 @@ public:
         }
         return GetQUANTITY();
     }
-    
-    
+
+
     virtual ~Civilians(){
         if(debug){
             cout << GetNAME() << " ,Civilians died, in quantity " << GetQUANTITY() <<endl<<endl;
@@ -170,7 +168,7 @@ public:
 
 
 class Military : public Units{
-    
+
 public:
     Military(loc_t heroes = 0, string name = "Military",size_t damage  = 0,size_t type_damage = 0, size_t speed = 0, size_t quantity = 0,size_t health = 0, size_t squad_health = 0) : Units(heroes, name, damage, type_damage, speed, quantity,health, squad_health)
     {
@@ -186,11 +184,11 @@ public:
                 cout << "SPEED 1 units:"<< GetSPEED() << endl;
                 cout << "QUANTITY units:"<< GetQUANTITY() << endl;
                 cout << "SQUAD_HEALTH units:"<< GetSQUAD_HEALTH() << endl<<endl;
-                
+
             }
         }
     }
-    
+
     virtual size_t Squad_Reinforcement(size_t Beginner) {
         SetQUANTITY(GetQUANTITY()+Beginner);
         SetSQUAD_HEALTH(GetSQUAD_HEALTH() + Beginner*GetHEALTH());
@@ -205,7 +203,7 @@ public:
         }
         return GetQUANTITY();
     }
-    
+
     virtual ~Military(){
         if(debug){
             cout << GetNAME() << " ,Military died, in quantity " << GetQUANTITY() <<endl<<endl;
@@ -236,7 +234,7 @@ int main() {
     delete latnic1;
     delete latnic2;
     delete latnic3;
-	delete latnic4;
+    delete latnic4;
     return 0;
 }
 
