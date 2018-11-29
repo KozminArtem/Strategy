@@ -235,6 +235,7 @@ int main() {
     delete latnic1;
     delete latnic2;
     delete latnic3;
+    printf("asdasdadasdasd");
     return 0;
 }
 
