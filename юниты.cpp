@@ -230,7 +230,7 @@ bool Units::debug = true;
 //size_t SQUAD_HEALTH;    //количество здоровья во всём отряде
 int main() {
     Units *latnic = new Military(1,"latnic",10,0,5,150,30,4500);
-    
+    int t;
     delete latnic;
     return 0;
 }
