@@ -1,4 +1,4 @@
-#include "Tile.h"
+#include "Headers\Tile.h"
 Tile::Tile(int pos_x, int pos_y, tile_type pos_type) {
 	x = pos_x;
 	y = pos_y;

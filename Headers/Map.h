@@ -1,5 +1,5 @@
-#ifndef __FIELD_H__ 
-#define __FIELD_H__
+#ifndef __MAP_H__ 
+#define __MAP_H__
 #include <vector>
 #include <iostream>
 #include <fstream>
