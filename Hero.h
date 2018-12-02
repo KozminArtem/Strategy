@@ -1,20 +1,46 @@
-#ifndef __MAP_H__ 
-#define __MAP_H__
+#ifndef __HERO_H__ 
+#define __HERO_H__
 #include <string>
 #include <vector>
 #include "Tile.h"
 #include "Map.h"
 #include "Unit.h"
 class Hero {
-	Tile pos; // На какой клетке находится
-	int move; // Количество шагов, на которое может пройти
-	int level; // Уровень героя
-	std::string Player; // Игрок, к которому принадлежит
-	std::vector<Unit> Army; // Юниты, принадлежащие юниту (его армия)
-	std::vector<float> Buff_army; // Бонусы, оказываемые героем на армию !!!описание!!!
-	int exp; // Опыт героя
-	std::vector<float> Buff_resource; // Бонусы, оказываемые героем на ресурсы !!!описание!!!
-	std::string Name; // Имя героя
-	void Turn(dir direction);
+private:
+	// На какой клетке находится
+	Tile pos;
+	// Количество шагов, на которое может пройти за ход
+	int move;
+	// Уровень героя
+	int level;
+	// Игрок, к которому принадлежит
+	std::string player;
+	// Юниты, принадлежащие юниту (его армия)
+	std::vector<Unit> army;
+	// Бонусы, оказываемые героем на армию !!!описание!!!
+	std::vector<float> buff_army;
+	// Опыт героя
+	int exp;
+	// Бонусы, оказываемые героем на ресурсы !!!описание!!!
+	std::vector<float> buff_resource;
+	// Имя героя
+	std::string name;
+	// Поле, на котором находится в течении игры
+	Map field;
+public:
+	/*Конструктор Hero(
+	Name - имя героя;
+	field - поле, на котором он создан;
+	x,y - его положение;
+	player - имя игрока, к которому принадлежит)*/
+	Hero(std::string Name, Map Field, int x, int y, std::string Player);
+	/*Get_x - получить x координату*/
+	int Get_x();
+	/*Get_y - получить x координату*/
+	int Get_y();
+	/*Print - напечатать состояние героя в консоль*/
+	void Print();
+	/*Move - сделать ход на 1 клетку, если это возможно(dir - направление хода)*/
+	void Move(direction dir);
 };
 #endif

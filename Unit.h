@@ -14,32 +14,19 @@ private:
 	size_t QUANTITY;        //количество юнитов в отряде
 	size_t HEALTH;          //здоровье 1-го юнита
 	size_t SQUAD_HEALTH;    //количество здоровья во всём отряде
-protected:
-	static int counter;
-	static bool debug;
 public:
-	static void setDebug(bool d = true)
-	{
-		debug = d;
-	}
 	Unit(loc_t heroes = 0, std::string name = "people", size_t damage = 0, size_t type_damage = 0, size_t speed = 0, size_t quantity = 0, size_t health = 0, size_t squad_health = 0) : HEROES(heroes), NAME(name), DAMAGE(damage), TYPE_DAMAGE(type_damage), SPEED(speed), QUANTITY(quantity), HEALTH(health), SQUAD_HEALTH(squad_health) {
-		counter++;
-		//        id = counter;
-		if (debug) {
-			std::cout << "Created new unit: " << HEROES << ", ";
-			if (NAME != "") {
-				std::cout << NAME;
-			}
-			else { std::cout << "no NAME"; }
-			std::cout << std::endl << "HEALTH 1 units:" << HEALTH << std::endl;
-			std::cout << "DAMAGE 1 units:" << DAMAGE << std::endl;
-			std::cout << "TYPE_DAMAGE 1 units:" << TYPE_DAMAGE << std::endl;
-			std::cout << "SPEED 1 units:" << SPEED << std::endl;
-			std::cout << "QUANTITY units:" << QUANTITY << std::endl;
-			std::cout << "SQUAD_HEALTH units:" << SQUAD_HEALTH << std::endl;
-
-			std::cout << "Number counter: " << counter << std::endl << std::endl;
+		std::cout << "Created new unit: " << HEROES << ", ";
+		if (NAME != "") {
+			std::cout << NAME;
 		}
+		else { std::cout << "no NAME"; }
+		std::cout << std::endl << "HEALTH 1 units:" << HEALTH << std::endl;
+		std::cout << "DAMAGE 1 units:" << DAMAGE << std::endl;
+		std::cout << "TYPE_DAMAGE 1 units:" << TYPE_DAMAGE << std::endl;
+		std::cout << "SPEED 1 units:" << SPEED << std::endl;
+		std::cout << "QUANTITY units:" << QUANTITY << std::endl;
+		std::cout << "SQUAD_HEALTH units:" << SQUAD_HEALTH << std::endl;
 	}
 
 
@@ -105,9 +92,7 @@ public:
 	}
 
 	virtual ~Unit() {
-		if (debug) {
-			std::cout << NAME << " ,Units died, in quantity " << QUANTITY << std::endl << std::endl;
-		}
+		std::cout << NAME << " ,Units died, in quantity " << QUANTITY << std::endl << std::endl;
 	}
 };
 
@@ -121,7 +106,6 @@ class Civilians : public Unit {
 public:
 	Civilians(loc_t heroes = 0, std::string name = "Civilians", size_t damage = 0, size_t type_damage = 0, size_t speed = 0, size_t quantity = 0, size_t health = 0, size_t squad_health = 0) : Unit(heroes, name, damage, type_damage, speed, quantity, health, squad_health)
 	{
-		if (debug) {
 			std::cout << "created new Civilians" << GetHEROES() << ", ";
 			if (GetNAME() != "") {
 				std::cout << GetNAME();
@@ -133,8 +117,6 @@ public:
 			std::cout << "SPEED 1 units:" << GetSPEED() << std::endl;
 			std::cout << "QUANTITY units:" << GetQUANTITY() << std::endl;
 			std::cout << "SQUAD_HEALTH units:" << GetSQUAD_HEALTH() << std::endl << std::endl;
-
-		}
 	}
 
 
@@ -158,9 +140,7 @@ public:
 
 
 	virtual ~Civilians() {
-		if (debug) {
-			std::cout << GetNAME() << " ,Civilians died, in quantity " << GetQUANTITY() << std::endl << std::endl;
-		}
+		std::cout << GetNAME() << " ,Civilians died, in quantity " << GetQUANTITY() << std::endl << std::endl;
 	}
 };
 
@@ -178,22 +158,17 @@ class Military : public Unit {
 public:
 	Military(loc_t heroes = 0, std::string name = "Military", size_t damage = 0, size_t type_damage = 0, size_t speed = 0, size_t quantity = 0, size_t health = 0, size_t squad_health = 0) : Unit(heroes, name, damage, type_damage, speed, quantity, health, squad_health)
 	{
-		if (debug) {
-			if (debug) {
-				std::cout << "created new Military: " << GetHEROES() << ", ";
-				if (GetNAME() != "") {
-					std::cout << GetNAME();
-				}
-				else { std::cout << "no NAME"; }
-				std::cout << std::endl << "HEALTH 1 units:" << GetHEALTH() << std::endl;
-				std::cout << "DAMAGE 1 units:" << GetDAMAGE() << std::endl;
-				std::cout << "TYPE_DAMAGE 1 units:" << GetTYPE_DAMAGE() << std::endl;
-				std::cout << "SPEED 1 units:" << GetSPEED() << std::endl;
-				std::cout << "QUANTITY units:" << GetQUANTITY() << std::endl;
-				std::cout << "SQUAD_HEALTH units:" << GetSQUAD_HEALTH() << std::endl << std::endl;
-
-			}
+		std::cout << "created new Military: " << GetHEROES() << ", ";
+		if (GetNAME() != "") {
+			std::cout << GetNAME();
 		}
+		else { std::cout << "no NAME"; }
+		std::cout << std::endl << "HEALTH 1 units:" << GetHEALTH() << std::endl;
+		std::cout << "DAMAGE 1 units:" << GetDAMAGE() << std::endl;
+		std::cout << "TYPE_DAMAGE 1 units:" << GetTYPE_DAMAGE() << std::endl;
+		std::cout << "SPEED 1 units:" << GetSPEED() << std::endl;
+		std::cout << "QUANTITY units:" << GetQUANTITY() << std::endl;
+		std::cout << "SQUAD_HEALTH units:" << GetSQUAD_HEALTH() << std::endl << std::endl;
 	}
 
 	virtual size_t Squad_Reinforcement(size_t Beginner) {
@@ -214,17 +189,9 @@ public:
 	}
 
 	virtual ~Military() {
-		if (debug) {
-			std::cout << GetNAME() << " ,Military died, in quantity " << GetQUANTITY() << std::endl << std::endl;
-		}
+		std::cout << GetNAME() << " ,Military died, in quantity " << GetQUANTITY() << std::endl << std::endl;
 	}
 };
-
-
-int Unit::counter = 0;
-
-
-bool Unit::debug = true;
 #endif
 
 //loc_t HEROES;           //какому отряду принадлежат  0-нейтралы 1-(1)герой  2-(2)герой

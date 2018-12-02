@@ -26,12 +26,12 @@ std::vector<std::vector<Tile>> Save::Load_Map() {
 	int size_y = save_file.get() - 48;
 	save_file.get();
 	std::vector<std::vector<Tile>> map_data;
-	map_data.resize(size_x);
-	for (int i = 1; i != size_x + 1; i++) {
+	map_data.resize(size_y);
+	for (int i = size_y; i != 0; i--) {
 		std::vector<Tile> v;
-		v.resize(size_y);
-		for (int j = 1; j != size_y + 1; j++) {
-			v[j - 1] = Tile(i, j, tile_type(save_file.get() - 48));
+		v.resize(size_x);
+		for (int j = 1; j != size_x + 1; j++) {
+			v[j - 1] = Tile(j, i, tile_type(save_file.get() - 48));
 			save_file.get();
 		}
 		map_data[i - 1] = v;
