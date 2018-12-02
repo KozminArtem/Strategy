@@ -28,17 +28,6 @@ void Map::Print(std::ostream& out) {
 		out << "\n";
 	}
 }
-void Map::PrintH(int x, int y,std::ostream& out) {
-	std::vector<std::vector<Tile>> qwe= tile_array;
-	qwe[y - 1][x - 1].Set_type(hero);
-	for (int i = size_y; i != 0; i--) {
-		for (int j = 1; j != size_x + 1; j++) {
-			qwe[i - 1][j - 1].Print(out);
-			if (j != size_x) out << " ";
-		}
-		out << "\n";
-	}
-}
 int Map::Get_size_x() {
 	return size_x;
 }

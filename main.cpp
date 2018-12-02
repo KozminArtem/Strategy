@@ -17,10 +17,8 @@ int main() {
 	Save_4.Save_Delete();*/
 	Hero Napoleon("Napoleon", Test_Field_2, 2, 3, "Dmitrii");
 	Napoleon.Print();
-	Test_Field_2.PrintH(Napoleon.Get_x(), Napoleon.Get_y());
 	Napoleon.Move(direction::down_right);
 	Napoleon.Print();
-	Test_Field_2.PrintH(Napoleon.Get_x(), Napoleon.Get_y());
     return 0;
 }
 

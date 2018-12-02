@@ -2,7 +2,7 @@
 #define __TILE_H__
 #include <iostream>
 #include <fstream>
-enum tile_type { plain, forest, mountain, lake, river_horizontal, river_vertical, river_bridge_horizontal, river_bridge_vertical , hero};
+enum tile_type { plain, forest, mountain, lake, river_horizontal, river_vertical, river_bridge_horizontal, river_bridge_vertical};
 class Tile {
 private:
 	int x;
