@@ -4,53 +4,50 @@
 #include <string>
 class Unit {
 protected:
-	//количество людей в отряде
+	//Number of people in unit
 	int QUANTITY;
-	//здоровье 1-го человека
+	//Health of 1 person
 	int HEALTH;
-	//количество здоровья во всём отряде
+	//Health of all squad
 	int SQUAD_HEALTH;
 public:
-	/*Конструктор Unit( damage - урон юнита;
-	type_damage - тип урона юнита;
-	speed - скорость юнита;
-	quantity - количество людей в отряде;
-	health - здоровье 1 человека)*/
+	/*Unit Constructor(quantity - number of people;
+	health - healthof 1 person)*/
 	Unit(int quantity = 0, int health = 0){
 		QUANTITY = quantity; 
 		HEALTH = health;
 		SQUAD_HEALTH = QUANTITY * HEALTH;
 	}
-	/*GetHEALTH - получить HEALTH юнита*/
+	/*GetHEALTH - get unit HEALTH*/
 	int GetHEALTH(void) const { 
 		return HEALTH;
 	}
-	/*GetQUANTITY - получить QUANTITY юнита*/
+	/*GetQUANTITY - get unit QUANTITY*/
 	int GetQUANTITY(void) const {
 		return QUANTITY;
 	}
-	/*GetSQUAD_HEALTH - получить SQUAD_HEALTH юнита*/
+	/*GetSQUAD_HEALTH - get unit SQUAD_HEALTH*/
 	int GetSQUAD_HEALTH(void) const {
 		return SQUAD_HEALTH;
 	}
-	/*SetHEALTH - установить HEALTH юнита*/
+	/*SetHEALTH - set unit HEALTH*/
 	void SetHEALTH(int health) {
 		HEALTH = health;
 	}
-	/*SetQUANTITY - установить QUANTITY юнита*/
+	/*SetQUANTITY - set unit QUANTITY*/
 	void SetQUANTITY(int quantity) {
 		QUANTITY = quantity;
 	}
-	/*SetSQUAD_HEALTH - установить SQUAD_HEALTH юнита*/
+	/*SetSQUAD_HEALTH - set unit SQUAD_HEALTH*/
 	void SetSQUAD_HEALTH(int squad_health) {
 		SQUAD_HEALTH = squad_health;
 	}
-	/*Squad_Reinforcement - добавить в отряд людей(Beginner - количество людей)*/
+	/*Squad_Reinforcement - add people to the squad(Beginner - number of people)*/
 	virtual void Squad_Reinforcement(int Beginner) {
 		QUANTITY = QUANTITY + Beginner;
 		SQUAD_HEALTH = SQUAD_HEALTH + Beginner * HEALTH;
 	}
-	/*Squad_Departed - удалить из отряда людей(Departed_People - удаленные люди)*/
+	/*Squad_Departed - delete people from squad(Departed_People - number of  deleted people)*/
 	virtual void Squad_Departed(int Departed_People) {
 		if (Departed_People < QUANTITY) {
 			QUANTITY = QUANTITY - Departed_People;
@@ -61,7 +58,7 @@ public:
 			SQUAD_HEALTH = 0;
 		}
 	}
-	/*Деструктор Unit*/
+	/*Unit Destructor*/
 	virtual ~Unit() {
 	}
 };

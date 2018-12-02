@@ -7,42 +7,42 @@
 #include "Unit.h"
 class Hero {
 private:
-	// Ќа какой клетке находитс€
+	// Tile on which is located
 	Tile pos;
-	//  оличество шагов, на которое может пройти за ход
+	// Number of tiles that hero can move on this turn
 	int move;
-	// ”ровень геро€
+	// Hero level
 	int level;
-	// »грок, к которому принадлежит
+	// Player that have hero
 	std::string player;
-	// ёниты, принадлежащие юниту (его арми€)
+	// Hero army
 	std::vector<Unit> army;
-	// Ѕонусы, оказываемые героем на армию !!!описание!!!
+	// Bonuses on army
 	std::vector<float> buff_army;
-	// ќпыт геро€
+	// Experience
 	int exp;
-	// Ѕонусы, оказываемые героем на ресурсы !!!описание!!!
+	// Bonuses on resourses
 	std::vector<float> buff_resource;
-	// »м€ геро€
+	// Hero name
 	std::string name;
-	// ѕоле, на котором находитс€ в течении игры
+	// Field where hero located
 	Map field;
 public:
-	/* онструктор Hero(
-	Name - им€ геро€;
-	field - поле, на котором он создан;
-	x,y - его положение;
-	player - им€ игрока, к которому принадлежит)*/
+	/*Hero Constructor(
+	Name - hero name;
+	field - map where hero located;
+	x,y - his position;
+	player - player that have hero)*/
 	Hero(std::string Name, Map Field, int x, int y, std::string Player);
-	/* онструктор Hero*/
+	/*Hero Constructor*/
 	Hero();
-	/*Get_x - получить x координату*/
+	/*Get_x - get x coordinate*/
 	int Get_x();
-	/*Get_y - получить x координату*/
+	/*Get_y - get y coordinate*/
 	int Get_y();
-	/*Print - напечатать состо€ние геро€ в консоль*/
+	/*Print - print hero status*/
 	void Print();
-	/*Move - сделать ход на 1 клетку, если это возможно(dir - направление хода)*/
+	/*Move - make move on 1 tile(dir - direction of movement)*/
 	void Move(direction dir);
 };
 #endif

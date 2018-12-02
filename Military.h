@@ -2,27 +2,34 @@
 #define __MILITARY_H__
 #include "Unit.h"
 #include "Hero.h"
+#include "Map.h"
 class Military : public Unit{
 protected:
-	//герой, к которому принадлежит юнит
+	//Hero that have unit
 	Hero HERO;
-	//скорость юнита
+	//Unit speed
 	int SPEED;
-	//урон юнита
+	//Unit damage
 	int DAMAGE;
-	//дистандия урона 1-ближники 2- дальники
+	//Damage distanse (1 - close-combat,2 - long range)
 	int TYPE_DAMAGE;
+	//Map position
+	Tile pos;
+	//Bonuses that depends on enemy
+
 public:
-	/*Конструктор Civilian( damage - урон юнита;
-	type_damage - тип урона юнита;
-	speed - скорость юнита;
-	quantity - количество людей в отряде;
-	health - здоровье 1 человека)*/
+	/*Military Constructor(hero - hero that have unit;
+	damage - unit damage;
+	type_damage - damage distanse;
+	speed - unit speed;
+	quantity - number of people;
+	health - healthof 1 person)*/
 	Military(Hero hero, int damage = 0, int type_damage = 0, int speed = 0, int quantity = 0, int health = 0) :Unit(quantity, health){
 		DAMAGE = damage;
 		TYPE_DAMAGE = type_damage;
 		SPEED = speed;
 		HERO = hero;
+		pos = Tile(0, 0);
 		std::cout << "Created new military unit.";
 		std::cout << std::endl << "HEALTH of 1 person:" << HEALTH << std::endl;
 		std::cout << "DAMAGE of unit:" << DAMAGE << std::endl;
@@ -31,44 +38,44 @@ public:
 		std::cout << "QUANTITY of people:" << QUANTITY << std::endl;
 		std::cout << "SQUAD_HEALTH of unit:" << SQUAD_HEALTH << std::endl;
 	}
-	/*GetDAMAGE - получить DAMAGE юнита*/
+	/*GetDAMAGE - get unit DAMAGE*/
 	int GetDAMAGE(void) const {
 		return DAMAGE;
 	}
-	/*GetTYPE_DAMAGE - получить TYPE_DAMAGE юнита*/
+	/*GetTYPE_DAMAGE - get unit TYPE_DAMAGE*/
 	int GetTYPE_DAMAGE(void) const {
 		return TYPE_DAMAGE;
 	}
-	/*GetSPEED - получить SPEED юнита*/
+	/*GetSPEED - get unit SPEED*/
 	int GetSPEED(void) const {
 		return SPEED;
 	}
-	/*GetHERO - получить HERO юнита*/
+	/*GetHERO - get unit HERO*/
 	Hero GetHERO(void) const {
 		return HERO;
 	}
-	/*SetDAMAGE - установить DAMAGE юнита*/
+	/*SetDAMAGE - set unit DAMAGE*/
 	void SetDAMAGE(int damage) {
 		DAMAGE = damage;
 	}
-	/*SetTYPE_DAMAGE - установить TYPE_DAMAGE юнита*/
+	/*SetTYPE_DAMAGE - set uni TYPE_DAMAGE*/
 	void SetTYPE_DAMAGE(int type_damage) {
 		TYPE_DAMAGE = type_damage;
 	}
-	/*SetSPEED - установить SPEED юнита*/
+	/*SetSPEED - set unit SPEED*/
 	void SetSPEED(int speed) {
 		SPEED = speed;
 	}
-	/*SetHERO - установить HERO юнита*/
+	/*SetHERO - se unit HERO*/
 	void SetSPEED(Hero hero) {
 		HERO = hero;
 	}
-	/*Squad_Reinforcement - добавить в отряд людей(Beginner - количество людей)*/
+	/*Squad_Reinforcement - add people to the squad(Beginner - number of people)*/
 	virtual void Squad_Reinforcement(int Beginner) {
 		SetQUANTITY(GetQUANTITY() + Beginner);
 		SetSQUAD_HEALTH(GetSQUAD_HEALTH() + Beginner * GetHEALTH());
 	}
-	/*Squad_Departed - удалить из отряда людей(Departed_People - удаленные люди)*/
+	/*Squad_Departed - delete people from squad(Departed_People - number of  deleted people)*/
 	virtual void Squad_Departed(int Departed_People) {
 		if (Departed_People < GetQUANTITY()) {
 			SetQUANTITY(GetQUANTITY() - Departed_People);
@@ -79,7 +86,7 @@ public:
 			SetSQUAD_HEALTH(0);
 		}
 	}
-	/*Деструктор Military*/
+	/*Military Destructor*/
 	virtual ~Military() {
 		std::cout << "Military died, in quantity " << GetQUANTITY() << std::endl;
 	}

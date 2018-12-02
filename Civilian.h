@@ -3,11 +3,8 @@
 #include "Unit.h"
 class Civilian : public Unit{
 public:
-	/* онструктор Civilian( damage - урон юнита;
-	type_damage - тип урона юнита;
-	speed - скорость юнита;
-	quantity - количество людей в отр€де;
-	health - здоровье 1 человека)*/
+	/*Civilian Constructor(quantity - number of people;
+	health - healthof 1 person)*/
 	Civilian(int quantity = 0, int health = 0) : Unit(quantity, health)
 	{
 		std::cout << "Created new civilian unit.";
@@ -15,12 +12,12 @@ public:
 		std::cout << "QUANTITY of people:" << QUANTITY << std::endl;
 		std::cout << "SQUAD_HEALTH of unit:" << SQUAD_HEALTH << std::endl;
 	}
-	/*Squad_Reinforcement - добавить в отр€д людей(Beginner - количество людей)*/
+	/*Squad_Reinforcement - add people to the squad(Beginner - number of people)*/
 	virtual void Squad_Reinforcement(int Beginner) {
 		SetQUANTITY(GetQUANTITY() + Beginner);
 		SetSQUAD_HEALTH(GetSQUAD_HEALTH() + Beginner * GetHEALTH());
 	}
-	/*Squad_Departed - удалить из отр€да людей(Departed_People - удаленные люди)*/
+	/*Squad_Departed - delete people from squad(Departed_People - number of  deleted people)*/
 	virtual void Squad_Departed(int Departed_People) {
 		if (Departed_People < GetQUANTITY()) {
 			SetQUANTITY(GetQUANTITY() - Departed_People);
@@ -31,7 +28,7 @@ public:
 			SetSQUAD_HEALTH(0);
 		}
 	}
-	/*ƒеструктор Civilian*/
+	/*Civilian Destructor*/
 	virtual ~Civilian() {
 		std::cout << "Civilians died, in quantity " << GetQUANTITY() << std::endl;
 	}
