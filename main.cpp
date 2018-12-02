@@ -1,6 +1,6 @@
-#include "Headers\Map.h"
-#include "Headers\Save.h"
-#include "Headers\Unit.h"
+#include "Map.h"
+#include "Save.h"
+#include "Unit.h"
 using namespace std;
 
 int main() {
