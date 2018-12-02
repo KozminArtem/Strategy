@@ -1,6 +1,7 @@
 #include "Map.h"
 #include "Save.h"
 #include "Unit.h"
+#include "Hero.h"
 using namespace std;
 
 int main() {
