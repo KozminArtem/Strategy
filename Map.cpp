@@ -36,4 +36,5 @@ int Map::Get_size_y() {
 }
 Tile Map::Get_Tile(int x, int y) {
 	if (1 <= x && x <= size_x && 1 <= y && y <= size_y) return tile_array[y - 1][x - 1];
+    else{return false;}
 }
