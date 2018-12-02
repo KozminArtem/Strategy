@@ -8,14 +8,10 @@ public:
 	speed - скорость юнита;
 	quantity - количество людей в отряде;
 	health - здоровье 1 человека)*/
-	Civilian(int damage = 0, int type_damage = 0, int speed = 0, int quantity = 0, int health = 0) : Unit(damage, type_damage, speed, quantity, health)
+	Civilian(int quantity = 0, int health = 0) : Unit(quantity, health)
 	{
-		SQUAD_HEALTH = QUANTITY * HEALTH;
 		std::cout << "Created new civilian unit.";
 		std::cout << std::endl << "HEALTH of 1 person:" << HEALTH << std::endl;
-		std::cout << "DAMAGE of unit:" << DAMAGE << std::endl;
-		std::cout << "TYPE_DAMAGE of unit:" << TYPE_DAMAGE << std::endl;
-		std::cout << "SPEED of unit:" << SPEED << std::endl;
 		std::cout << "QUANTITY of people:" << QUANTITY << std::endl;
 		std::cout << "SQUAD_HEALTH of unit:" << SQUAD_HEALTH << std::endl;
 	}

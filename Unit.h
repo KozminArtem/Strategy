@@ -4,12 +4,6 @@
 #include <string>
 class Unit {
 protected:
-	//урон юнита
-	int DAMAGE;
-	//дистандия урона 1-ближники 2- дальники
-	int TYPE_DAMAGE;
-	//скорость юнита
-	int SPEED;
 	//количество людей в отряде
 	int QUANTITY;
 	//здоровье 1-го человека
@@ -22,24 +16,14 @@ public:
 	speed - скорость юнита;
 	quantity - количество людей в отряде;
 	health - здоровье 1 человека)*/
-	Unit(int damage = 0, int type_damage = 0, int speed = 0, int quantity = 0, int health = 0) : DAMAGE(damage), TYPE_DAMAGE(type_damage), SPEED(speed), QUANTITY(quantity), HEALTH(health){
+	Unit(int quantity = 0, int health = 0){
+		QUANTITY = quantity; 
+		HEALTH = health;
 		SQUAD_HEALTH = QUANTITY * HEALTH;
 	}
 	/*GetHEALTH - получить HEALTH юнита*/
 	int GetHEALTH(void) const { 
 		return HEALTH;
-	}
-	/*GetDAMAGE - получить DAMAGE юнита*/
-	int GetDAMAGE(void) const { 
-		return DAMAGE; 
-	}
-	/*GetTYPE_DAMAGE - получить TYPE_DAMAGE юнита*/
-	int GetTYPE_DAMAGE(void) const { 
-		return TYPE_DAMAGE;
-	}
-	/*GetSPEED - получить SPEED юнита*/
-	int GetSPEED(void) const {
-		return SPEED;
 	}
 	/*GetQUANTITY - получить QUANTITY юнита*/
 	int GetQUANTITY(void) const {
@@ -52,18 +36,6 @@ public:
 	/*SetHEALTH - установить HEALTH юнита*/
 	void SetHEALTH(int health) {
 		HEALTH = health;
-	}
-	/*SetDAMAGE - установить DAMAGE юнита*/
-	void SetDAMAGE(int damage) {
-		DAMAGE = damage;
-	}
-	/*SetTYPE_DAMAGE - установить TYPE_DAMAGE юнита*/
-	void SetTYPE_DAMAGE(int type_damage) {
-		TYPE_DAMAGE = type_damage;
-	}
-	/*SetSPEED - установить SPEED юнита*/
-	void SetSPEED(int speed) {
-		SPEED = speed;
 	}
 	/*SetQUANTITY - установить QUANTITY юнита*/
 	void SetQUANTITY(int quantity) {
@@ -79,7 +51,7 @@ public:
 		SQUAD_HEALTH = SQUAD_HEALTH + Beginner * HEALTH;
 	}
 	/*Squad_Departed - удалить из отряда людей(Departed_People - удаленные люди)*/
-	virtual void Squad_Departed(size_t Departed_People) {
+	virtual void Squad_Departed(int Departed_People) {
 		if (Departed_People < QUANTITY) {
 			QUANTITY = QUANTITY - Departed_People;
 			SQUAD_HEALTH = SQUAD_HEALTH - Departed_People * HEALTH;

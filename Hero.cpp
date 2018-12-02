@@ -12,6 +12,8 @@ Hero::Hero(std::string Name, Map Field, int x, int y, std::string Player){
 	buff_army = std::vector<float>();
 	buff_resource = std::vector<float>();
 }
+Hero::Hero() {
+}
 int Hero::Get_x() {
 	return pos.Get_x();
 }

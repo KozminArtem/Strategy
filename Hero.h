@@ -34,6 +34,8 @@ public:
 	x,y - его положение;
 	player - имя игрока, к которому принадлежит)*/
 	Hero(std::string Name, Map Field, int x, int y, std::string Player);
+	/*Конструктор Hero*/
+	Hero();
 	/*Get_x - получить x координату*/
 	int Get_x();
 	/*Get_y - получить x координату*/
