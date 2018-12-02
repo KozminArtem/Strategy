@@ -1,9 +1,11 @@
 #include "Map.h"
 #include "Save.h"
 #include "Unit.h"
+#include "Military.h"
+#include "Civilian.h"
 #include "Hero.h"
 int main() {
-    Unit latnic = Military(1,"latnic",10,0,5,150,30,4500);
+    Unit *latnic = new Military(10,1,2,100,50);
 	//Save Save_1("Save_1", "Saved_Maps\\");
 	Save Save_2("Save_2", "Saved_Maps\\");
 	//Save Save_3("Save_3", "Saved_Maps\\");
@@ -19,6 +21,7 @@ int main() {
 	Napoleon.Print();
 	Napoleon.Move(direction::down_right);
 	Napoleon.Print();
+	delete latnic;
     return 0;
 }
 
