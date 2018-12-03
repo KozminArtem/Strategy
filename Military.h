@@ -3,6 +3,9 @@
 #include "Unit.h"
 #include "Hero.h"
 #include "Map.h"
+#include <iostream>
+#include <stdio.h>
+#include <string>
 class Military : public Unit{
 protected:
     //Hero that have unit
@@ -18,10 +21,17 @@ protected:
     //Map position
     Tile pos;
     
-    //Sequence of walking
-    int INITIATIVE;
     //BUFF DAMAGE
     int BUFF_DAMAGE;
+    //Health of 1 person (no BUFF)
+    int HEALTH_ONE;
+    //Health of all squad (+BUFF)
+    int SQUAD_HEALTH;
+    //buff from HEROES
+    int BUFF_HEALTH;
+    //health of the last unit is left (there can not be more than hp at the top squad + buffs)
+    int LEFT_HEALTH;
+    
 public:
     /*Military Constructor(hero - hero that have unit;
      left_health - health of the last person is left(+BUFF_HEALTH);
@@ -32,18 +42,23 @@ public:
      buff_damage - buff_damage
      type_damage - damage distanse;
      speed - unit speed;
-     initiative - sequense of walking;)*/
-    Military( Hero hero, int left_health, int health_one = 0, int buff_health = 0, int quantity = 0, int damage_one = 0, int buff_damage = 0, int type_damage = 0, int speed = 0, int initiative=0) :Unit(left_health, quantity, health_one, buff_health){
+     )*/
+    Military( Hero hero, int left_health, int health_one = 0, int buff_health = 0, int quantity = 0, int damage_one = 0, int buff_damage = 0, int type_damage = 0, int speed = 0) :Unit(quantity){
         DAMAGE_ONE = damage_one;
         BUFF_DAMAGE = buff_damage;
         TYPE_DAMAGE = type_damage;
         SPEED = speed;
         HERO = hero;
-        INITIATIVE = initiative;
         LEFT_HEALTH = left_health;
         BUFF_HEALTH = buff_health;
         pos = Tile(0, 0);
+        HEALTH_ONE = health_one;
         SQUAD_DAMAGE = (DAMAGE_ONE+BUFF_DAMAGE)*QUANTITY;
+        if (LEFT_HEALTH >= HEALTH_ONE + BUFF_HEALTH){
+            printf("EROR LEFT_HEALTH");
+        }
+        if(QUANTITY >= 1){SQUAD_HEALTH = (QUANTITY-1) * (HEALTH_ONE+BUFF_HEALTH) + LEFT_HEALTH;}
+        else{SQUAD_HEALTH = 0;}
         std::cout << "Created new military unit."<<std::endl;
         std::cout << "LEFT_HEALTH:" << LEFT_HEALTH << std::endl;
         std::cout << std::endl << "HEALTH of 1 person:" << HEALTH_ONE << std::endl;
@@ -53,7 +68,6 @@ public:
         std::cout << "BUFF damage of 1 person:" << BUFF_DAMAGE << std::endl;
         std::cout << "TYPE_DAMAGE of unit:" << TYPE_DAMAGE << std::endl;
         std::cout << "SPEED of unit:" << SPEED << std::endl;
-        std::cout << "INITIATIVE of unit:" << INITIATIVE << std::endl;
         std::cout << "SQUAD_HEALTH of unit:" << SQUAD_HEALTH << std::endl;
     }
     
@@ -74,13 +88,25 @@ public:
     Hero GetHERO(void) const {
         return HERO;
     }
-    //Get initiative unit
-    int GetINITIATIVE(void) const{
-        return INITIATIVE;
-    }
     //Get BUFF DAMAGE of 1 person
     int GetBUFF_DAMAGE(void) const{
         return BUFF_DAMAGE;
+    }
+    /*GetHEALTHONE - get unit HEALTH*/
+    int GetHEALTH_ONE(void) const {
+        return HEALTH_ONE;
+    }
+    /*GetSQUAD_HEALTH - get unit SQUAD_HEALTH*/
+    int GetSQUAD_HEALTH(void) const {
+        return SQUAD_HEALTH;
+    }
+    //Get BUFF
+    int GetBUFF(void) const{
+        return BUFF_HEALTH;
+    }
+    //Get health of the last unit is left (there can not be more than hp at the top squad + buffs)
+    int GetLEFT_HEALTH(void) const{
+        return LEFT_HEALTH;
     }
     
     
@@ -101,13 +127,25 @@ public:
     void SetSPEED(Hero hero) {
         HERO = hero;
     }
-    //    SetINITIATIVE - set unit INITIATIVE
-    void SetINITIATIVE(int initiative){
-        INITIATIVE = initiative;
-    }
     //Set BUFF DAMAGE of 1 person
     void GetBUFF_DAMAGE(int buff_damage){
         BUFF_DAMAGE = buff_damage;
+    }
+    /*SetHEALTH_ONE - set unit HEALTH*/
+    void SetHEALTH_ONE(int health_one) {
+        HEALTH_ONE = health_one;
+    }
+    /*SetSQUAD_HEALTH - set unit SQUAD_HEALTH*/
+    void SetSQUAD_HEALTH(int squad_health) {
+        SQUAD_HEALTH = squad_health;
+    }
+    //Set BUFF
+    void SetBUFF_HEALTH(int buff_health){
+        BUFF_HEALTH = buff_health;
+    }
+    //Set health of the last unit is left (there can not be more than hp at the top squad + buffs)
+    void SetLEFT_HEALTH(int left_health){
+        LEFT_HEALTH = left_health;
     }
     
     
