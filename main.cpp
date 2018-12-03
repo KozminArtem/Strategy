@@ -17,17 +17,10 @@ int main() {
      Save Save_4("Save_4", "Saved_Maps\\");
      Save_4.Save_Delete();*/
     Hero Napoleon("Napoleon", Test_Field_2, 2, 3, "Dmitrii");
-    /*Military Constructor(hero - hero that have unit;
-     left_health - health of the last person is left(+BUFF_HEALTH);
-     health_one - healthof 1 person
-     buff_health - buff_health one person;
-     quantity - number of people;
-     damage_one - one person damage(NO BUFF_DAMAGE);
-     buff_damage - buff_damage
-     type_damage - damage distanse;
-     speed - unit speed;
-     initiative - sequense of walking;)*/
-    Unit *latnic = new Military(Napoleon, 12, 10, 3, 100,2,1,1,5,10);
+    //      Military( Hero hero, int left_health, int health_one = 0, int buff_health = 0, int quantity = 0, int damage_one = 0, int buff_damage = 0, int type_damage = 0, int speed = 0) :Unit(quantity)
+    Unit *latnic = new Military(Napoleon, 12, 10, 3, 100,2,1,1,5);
+    
+
     
     Napoleon.Print();
     Napoleon.Move(direction::down_right);
