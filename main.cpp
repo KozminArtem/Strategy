@@ -1,9 +1,9 @@
-#include "Map.h"
-#include "Save.h"
-#include "Unit.h"
-#include "Military.h"
-#include "Civilian.h"
-#include "Hero.h"
+#include "Headers/Declaration/Map.hpp"
+#include "Headers/Declaration/Save.hpp"
+#include "Headers/Declaration/Unit.hpp"
+#include "Headers/Declaration/Military.hpp"
+#include "Headers/Declaration/Civilian.hpp"
+#include "Headers/Declaration/Hero.hpp"
 int main() {
 	//Save Save_1("Save_1", "Saved_Maps\\");
 	Save Save_2("Save_2", "Saved_Maps\\");

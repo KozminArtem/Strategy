@@ -1,9 +1,9 @@
-#ifndef __MILITARY_H__
-#define __MILITARY_H__
-#include "Unit.h"
-#include "Hero.h"
-#include "Map.h"
-class Military : public Unit{
+#ifndef __MILITARY_HPP__
+#define __MILITARY_HPP__
+#include "Unit.hpp"
+#include "Hero.hpp"
+#include "Map.hpp"
+class Military : public Unit {
 protected:
 	//Hero that have unit
 	Hero HERO;
@@ -24,7 +24,7 @@ public:
 	speed - unit speed;
 	quantity - number of people;
 	health - healthof 1 person)*/
-	Military(Hero hero, int damage = 0, int type_damage = 0, int speed = 0, int quantity = 0, int health = 0) :Unit(quantity, health){
+	Military(Hero hero, int damage = 0, int type_damage = 0, int speed = 0, int quantity = 0, int health = 0) :Unit(quantity, health) {
 		DAMAGE = damage;
 		TYPE_DAMAGE = type_damage;
 		SPEED = speed;

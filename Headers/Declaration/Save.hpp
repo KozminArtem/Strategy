@@ -1,11 +1,11 @@
-#ifndef __SAVE_H__
-#define __SAVE_H__
+#ifndef __SAVE_HPP__
+#define __SAVE_HPP__
 #include <fstream>
 #include <iostream>
 #include <string>
 #include <vector>
 #include <cstdio>
-#include "Map.h"
+#include "Map.hpp"
 class Save {
 private:
 	//Save file

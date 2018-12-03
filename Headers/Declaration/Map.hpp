@@ -1,9 +1,9 @@
-#ifndef __MAP_H__ 
-#define __MAP_H__
+#ifndef __MAP_HPP__ 
+#define __MAP_HPP__
 #include <vector>
 #include <iostream>
 #include <fstream>
-#include "Tile.h"
+#include "Tile.hpp"
 enum class direction { left, right, up, down, up_left, up_right, down_left, down_right };
 class Map {
 private:

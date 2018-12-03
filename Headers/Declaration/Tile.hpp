@@ -1,8 +1,8 @@
-#ifndef __TILE_H__ 
-#define __TILE_H__
+#ifndef __TILE_HPP__ 
+#define __TILE_HPP__
 #include <iostream>
 #include <fstream>
-enum tile_type { plain, forest, mountain, lake, river_horizontal, river_vertical, river_bridge_horizontal, river_bridge_vertical};
+enum tile_type { plain, forest, mountain, lake, river_horizontal, river_vertical, river_bridge_horizontal, river_bridge_vertical };
 class Tile {
 private:
 	int x;

@@ -1,10 +1,10 @@
-#ifndef __HERO_H__ 
-#define __HERO_H__
+#ifndef __HERO_HPP__ 
+#define __HERO_HPP__
 #include <string>
 #include <vector>
-#include "Tile.h"
-#include "Map.h"
-#include "Unit.h"
+#include "Tile.hpp"
+#include "Map.hpp"
+#include "Unit.hpp"
 class Hero {
 private:
 	// Tile on which is located

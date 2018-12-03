@@ -1,5 +1,5 @@
-#ifndef __Unit_H__ 
-#define __Unit_H__
+#ifndef __Unit_HPP__ 
+#define __Unit_HPP__
 #include <iostream>
 #include <string>
 class Unit {
@@ -13,13 +13,13 @@ protected:
 public:
 	/*Unit Constructor(quantity - number of people;
 	health - healthof 1 person)*/
-	Unit(int quantity = 0, int health = 0){
-		QUANTITY = quantity; 
+	Unit(int quantity = 0, int health = 0) {
+		QUANTITY = quantity;
 		HEALTH = health;
 		SQUAD_HEALTH = QUANTITY * HEALTH;
 	}
 	/*GetHEALTH - get unit HEALTH*/
-	int GetHEALTH(void) const { 
+	int GetHEALTH(void) const {
 		return HEALTH;
 	}
 	/*GetQUANTITY - get unit QUANTITY*/

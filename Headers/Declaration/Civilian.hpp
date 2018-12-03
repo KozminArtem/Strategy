@@ -1,7 +1,7 @@
-#ifndef __CIVILIAN_H__ 
-#define __CIVILIAN_H__
-#include "Unit.h"
-class Civilian : public Unit{
+#ifndef __CIVILIAN_HPP__ 
+#define __CIVILIAN_HPP__
+#include "Unit.hpp"
+class Civilian : public Unit {
 public:
 	/*Civilian Constructor(quantity - number of people;
 	health - healthof 1 person)*/
