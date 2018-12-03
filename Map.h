@@ -14,7 +14,6 @@ public:
 	Map(int size_X = 1, int size_Y = 1);
 	Map(std::vector<std::vector<Tile>> map_data);
 	void Print(std::ostream& out = std::cout);
-	void PrintH(int x, int y, std::ostream& out = std::cout);
 	int Get_size_x();
 	int Get_size_y();
 	Tile Get_Tile(int x, int y);
