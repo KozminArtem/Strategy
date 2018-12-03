@@ -17,10 +17,9 @@ int main() {
      Save Save_4("Save_4", "Saved_Maps\\");
      Save_4.Save_Delete();*/
     Hero Napoleon("Napoleon", Test_Field_2, 2, 3, "Dmitrii");
-    //      Military( Hero hero, int left_health, int health_one = 0, int buff_health = 0, int quantity = 0, int damage_one = 0, int buff_damage = 0, int type_damage = 0, int speed = 0) :Unit(quantity)
-    Unit *latnic = new Military(Napoleon, 12, 10, 3, 100,2,1,1,5);
-    
-
+    //    Military( Hero hero, int quantity = 0, int health_one = 0, int left_health=0, int buff_health = 0, int damage_one = 0, int buff_damage = 0, int type_damage = 0, int devation_damage = 0, int travel_distance = 0, int buff_travel = 0, int left_travel = 0) :Unit(quantity){
+    //
+    Unit *latnic = new Military(Napoleon, 100, 10, 12, 2,3,-1,1,20,3,2,5);
     
     Napoleon.Print();
     Napoleon.Move(direction::down_right);
@@ -28,7 +27,5 @@ int main() {
     delete latnic;
     return 0;
 }
-
-
 
 
