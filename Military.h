@@ -296,7 +296,19 @@ public:
         float Final_Damage = Attack + (float) (c/100) * Attack;
         return (int)Final_Damage;
     }
-    
+    //    take damage
+    void Take_Damage(int Taken_Damage){
+        if(GetSQUAD_HEALTH() <= Taken_Damage){
+            SetQUANTITY(0);
+            SetSQUAD_HEALTH(0);
+            SetLEFT_HEALTH(0);
+        }else{
+            SetSQUAD_HEALTH(GetSQUAD_HEALTH() - Taken_Damage);
+            int NEW_QUANTITY = 1+ (int)GetSQUAD_HEALTH()/(GetHEALTH_ONE()+GetBUFF_HEALTH());
+            SetQUANTITY(NEW_QUANTITY);
+            SetLEFT_HEALTH(GetSQUAD_HEALTH() - (GetQUANTITY()-1)*(GetHEALTH_ONE()+GetBUFF_HEALTH()));
+        }
+    }
     
     
     
