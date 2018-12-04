@@ -6,7 +6,7 @@
 #include "Hero.h"
 int main() {
     //Save Save_1("Save_1", "Saved_Maps\\");
-    Save Save_2("Save_2", "/Users/artemkozmin/Documents/–ü–†–û–ï–ö–¢/–ü–†–û–ï–ö–¢/Saved_maps/");
+    Save Save_2("Save_2", "/Users/artemkozmin/Documents/œ–Œ≈ “/œ–Œ≈ “/Saved_maps/"); ///Users/artemkozmin/Documents/œ–Œ≈ “/œ–Œ≈ “/
     //Save Save_3("Save_3", "Saved_Maps\\");
     //Map Test_Field_1(10, 20);
     Map Test_Field_2(Save_2.Load_Map());

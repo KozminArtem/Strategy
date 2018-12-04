@@ -309,7 +309,128 @@ public:
             SetLEFT_HEALTH(GetSQUAD_HEALTH() - (GetQUANTITY()-1)*(GetHEALTH_ONE()+GetBUFF_HEALTH()));
         }
     }
-    
+	void Military::Move(direction dir, Map field) {
+		if (dir == direction::up) {
+			if (POS.Get_y() + 1 <= field.Get_size_y()) {
+				if (field.Get_Tile(POS.Get_x(), POS.Get_y() + 1).is_passage()) {
+					tile_type next = field.Get_Tile(POS.Get_x(), POS.Get_y() + 1).Get_type();
+					if (next == forest && LEFT_TRAVEL >= 2) {
+						LEFT_TRAVEL -= 2;
+						POS = field.Get_Tile(POS.Get_x(), POS.Get_y() + 1);
+					}
+					if (next != forest && LEFT_TRAVEL >= 1) {
+						LEFT_TRAVEL -= 1;
+						POS = field.Get_Tile(POS.Get_x(), POS.Get_y() + 1);
+					}
+				}
+			}
+		}
+		if (dir == direction::down) {
+			if (POS.Get_y() - 1 >= 1) {
+				if (field.Get_Tile(POS.Get_x(), POS.Get_y() - 1).is_passage()) {
+					tile_type next = field.Get_Tile(POS.Get_x(), POS.Get_y() - 1).Get_type();
+					if (next == forest && LEFT_TRAVEL >= 2) {
+						LEFT_TRAVEL -= 2;
+						POS = field.Get_Tile(POS.Get_x(), POS.Get_y() - 1);
+					}
+					if (next != forest && LEFT_TRAVEL >= 1) {
+						LEFT_TRAVEL -= 1;
+						POS = field.Get_Tile(POS.Get_x(), POS.Get_y() - 1);
+					}
+				}
+			}
+		}
+		if (dir == direction::left) {
+			if (POS.Get_x() - 1 >= 1) {
+				if (field.Get_Tile(POS.Get_x() - 1, POS.Get_y()).is_passage()) {
+					tile_type next = field.Get_Tile(POS.Get_x() - 1, POS.Get_y()).Get_type();
+					if (next == forest && LEFT_TRAVEL >= 2) {
+						LEFT_TRAVEL -= 2;
+						POS = field.Get_Tile(POS.Get_x() - 1, POS.Get_y());
+					}
+					if (next != forest && LEFT_TRAVEL >= 1) {
+						LEFT_TRAVEL -= 1;
+						POS = field.Get_Tile(POS.Get_x() - 1, POS.Get_y());
+					}
+				}
+			}
+		}
+		if (dir == direction::right) {
+			if (POS.Get_x() + 1 <= field.Get_size_x()) {
+				if (field.Get_Tile(POS.Get_x() + 1, POS.Get_y()).is_passage()) {
+					tile_type next = field.Get_Tile(POS.Get_x() + 1, POS.Get_y()).Get_type();
+					if (next == forest && LEFT_TRAVEL >= 2) {
+						LEFT_TRAVEL -= 2;
+						POS = field.Get_Tile(POS.Get_x() + 1, POS.Get_y());
+					}
+					if (next != forest && LEFT_TRAVEL >= 1) {
+						LEFT_TRAVEL -= 1;
+						POS = field.Get_Tile(POS.Get_x() + 1, POS.Get_y());
+					}
+				}
+			}
+		}
+		if (dir == direction::up_left) {
+			if (POS.Get_y() + 1 <= field.Get_size_y() && POS.Get_x() - 1 >= 1) {
+				if (field.Get_Tile(POS.Get_x() - 1, POS.Get_y() + 1).is_passage()) {
+					tile_type next = field.Get_Tile(POS.Get_x() - 1, POS.Get_y() + 1).Get_type();
+					if (next == forest && LEFT_TRAVEL >= 3) {
+						LEFT_TRAVEL -= 3;
+						POS = field.Get_Tile(POS.Get_x() - 1, POS.Get_y() + 1);
+					}
+					if (next != forest && LEFT_TRAVEL >= 2) {
+						LEFT_TRAVEL -= 2;
+						POS = field.Get_Tile(POS.Get_x() - 1, POS.Get_y() + 1);
+					}
+				}
+			}
+		}
+		if (dir == direction::up_right) {
+			if (POS.Get_y() + 1 <= field.Get_size_y() && POS.Get_x() + 1 <= field.Get_size_x()) {
+				if (field.Get_Tile(POS.Get_x() + 1, POS.Get_y() + 1).is_passage()) {
+					tile_type next = field.Get_Tile(POS.Get_x() + 1, POS.Get_y() + 1).Get_type();
+					if (next == forest && LEFT_TRAVEL >= 3) {
+						LEFT_TRAVEL -= 3;
+						POS = field.Get_Tile(POS.Get_x() + 1, POS.Get_y() + 1);
+					}
+					if (next != forest && LEFT_TRAVEL >= 2) {
+						LEFT_TRAVEL -= 2;
+						POS = field.Get_Tile(POS.Get_x() + 1, POS.Get_y() + 1);
+					}
+				}
+			}
+		}
+		if (dir == direction::down_left) {
+			if (POS.Get_y() - 1 >= 1 && POS.Get_x() - 1 >= 1) {
+				if (field.Get_Tile(POS.Get_x() - 1, POS.Get_y() - 1).is_passage()) {
+					tile_type next = field.Get_Tile(POS.Get_x() - 1, POS.Get_y() - 1).Get_type();
+					if (next == forest && LEFT_TRAVEL >= 3) {
+						LEFT_TRAVEL -= 3;
+						POS = field.Get_Tile(POS.Get_x() - 1, POS.Get_y() - 1);
+					}
+					if (next != forest && LEFT_TRAVEL >= 2) {
+						LEFT_TRAVEL -= 2;
+						POS = field.Get_Tile(POS.Get_x() - 1, POS.Get_y() - 1);
+					}
+				}
+			}
+		}
+		if (dir == direction::down_right) {
+			if (POS.Get_y() - 1 >= 1 && POS.Get_x() + 1 <= field.Get_size_x()) {
+				if (field.Get_Tile(POS.Get_x() + 1, POS.Get_y() - 1).is_passage()) {
+					tile_type next = field.Get_Tile(POS.Get_x() + 1, POS.Get_y() - 1).Get_type();
+					if (next == forest && LEFT_TRAVEL >= 3) {
+						LEFT_TRAVEL -= 3;
+						POS = field.Get_Tile(POS.Get_x() + 1, POS.Get_y() - 1);
+					}
+					if (next != forest && LEFT_TRAVEL >= 2) {
+						LEFT_TRAVEL -= 2;
+						POS = field.Get_Tile(POS.Get_x() + 1, POS.Get_y() - 1);
+					}
+				}
+			}
+		}
+	}
     
     
     
