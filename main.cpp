@@ -5,8 +5,8 @@
 #include "Civilian.h"
 #include "Hero.h"
 int main() {
-    //Save Save_1("Save_1", "Saved_Maps\\");
-    Save Save_2("Save_2", "/Users/artemkozmin/Documents/опнейр/опнейр/Saved_maps/"); ///Users/artemkozmin/Documents/опнейр/опнейр/
+    //Save Save_1("Save_1", "//Users/artemkozmin/Documents/опнейр/опнейр/Saved_Maps\\");
+    Save Save_2("Save_2", "Saved_maps/"); ///Users/artemkozmin/Documents/опнейр/опнейр/
     //Save Save_3("Save_3", "Saved_Maps\\");
     //Map Test_Field_1(10, 20);
     Map Test_Field_2(Save_2.Load_Map());

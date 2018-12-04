@@ -14,7 +14,7 @@ public:
 	int Get_x();
 	int Get_y();
 	tile_type Get_type();
-	bool Tile::Get_is_placed();
+	bool Get_is_placed();
 	void Set_x(int X);
 	void Set_y(int Y);
 	void Set_type(tile_type type);
