@@ -26,7 +26,7 @@ void Tile::Set_y(int Y) {
 void Tile::Set_type(tile_type Type) {
 	type = Type;
 }
-void Tile::Set_type(bool is_pl) {
+void Tile::Set_is_placed(bool is_pl) {
 	is_placed = is_pl;
 }
 void Tile::Print(std::ostream& out) {

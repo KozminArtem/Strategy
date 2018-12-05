@@ -1,8 +1,8 @@
 #ifndef __MILITARY_H__
 #define __MILITARY_H__
 #include "Unit.h"
-#include "Hero.h"
 #include "Map.h"
+#include "Move.hpp"
 #include <iostream>
 #include <stdio.h>
 #include <string>
@@ -12,9 +12,6 @@
 
 class Military : public Unit{
 protected:
-    //Hero that have unit
-    Hero HERO;
-    
     //Damage of one unit(NO BUFF_DAMAGE)
     int DAMAGE_ONE;
     //Damage distanse (1 - close-combat,2 - long range)
@@ -56,47 +53,7 @@ public:
      type_damage - damage distanse;
      speed - unit speed;
      )*/
-    Military( Hero hero, int quantity = 0, int health_one = 0, int left_health=0, int buff_health = 0, int damage_one = 0, int buff_damage = 0, int type_damage = 0, int devation_damage = 0, int travel_distance = 0, int buff_travel = 0, int left_travel = 0) :Unit(quantity){
-        
-        //HEROES
-        HERO = hero;
-        
-        //DAMAGE
-        DAMAGE_ONE = damage_one;
-        TYPE_DAMAGE = type_damage;
-        BUFF_DAMAGE = buff_damage;
-        DEVATION_DAMAGE = devation_damage;
-        SQUAD_DAMAGE = (DAMAGE_ONE+BUFF_DAMAGE)*QUANTITY;
-        
-        //HEALTH
-        LEFT_HEALTH = left_health;
-        BUFF_HEALTH = buff_health;
-        HEALTH_ONE = health_one;
-        if(QUANTITY >= 1){SQUAD_HEALTH = (QUANTITY-1) * (HEALTH_ONE+BUFF_HEALTH) + LEFT_HEALTH;}
-        else{SQUAD_HEALTH = 0;}
-        
-        //TRAVEL
-        TRAVEL_DISTANCE = travel_distance;
-        BUFF_TRAVEL = buff_travel;
-        LEFT_TRAVEL = left_travel;
-        
-        //POSITION
-        POS = Tile(0, 0);
-        
-        
-        
-        
-        std::cout << "Created new military unit."<<std::endl;
-        std::cout << "LEFT_HEALTH:" << LEFT_HEALTH << std::endl;
-        std::cout << std::endl << "HEALTH of 1 person:" << HEALTH_ONE << std::endl;
-        std::cout << "BUFF HEALTH of 1 person:" << BUFF_HEALTH << std::endl;
-        std::cout << "QUANTITY of people:" << QUANTITY << std::endl;
-        std::cout << "DAMAGE of 1 person:" << DAMAGE_ONE << std::endl;
-        std::cout << "BUFF damage of 1 person:" << BUFF_DAMAGE << std::endl;
-        std::cout << "TYPE_DAMAGE of unit:" << TYPE_DAMAGE << std::endl;
-        std::cout << "TRAVEL_DISTANCE(NO BUFF):" << TRAVEL_DISTANCE << std::endl;
-        std::cout << "SQUAD_HEALTH of unit:" << SQUAD_HEALTH << std::endl;
-    }
+	Military(int quantity = 0, int health_one = 0, int left_health = 0, int buff_health = 0, int damage_one = 0, int buff_damage = 0, int type_damage = 0, int devation_damage = 0, int travel_distance = 0, int buff_travel = 0, int left_travel = 0);
     
     
     
@@ -110,71 +67,39 @@ public:
     
     
     
-    //HEROES
-    /*GetHERO - get unit HERO*/
-    Hero GetHERO(void) const {
-        return HERO;
-    }
-    
     //DAMAGE
     /*GetDAMAGE - get 1 person DAMAGE(AVERAGE, no BUFF_DAMAGE)*/
-    int GetDAMAGE_ONE(void) const {
-        return DAMAGE_ONE;
-    }
+	int GetDAMAGE_ONE(void) const;
     /*GetTYPE_DAMAGE - get unit TYPE_DAMAGE*/
-    int GetTYPE_DAMAGE(void) const {
-        return TYPE_DAMAGE;
-    }
+	int GetTYPE_DAMAGE(void) const;
     //Get BUFF DAMAGE of 1 person
-    int GetBUFF_DAMAGE(void) const{
-        return BUFF_DAMAGE;
-    }
+	int GetBUFF_DAMAGE(void) const;
     //Get maximum deviation of damage from average (in percent)
-    int GetDEVATION_DAMAGE(void) const{
-        return DEVATION_DAMAGE;
-    }
+	int GetDEVATION_DAMAGE(void) const;
     //Get squad average damage on squad (+BUFF_DAMAGE)
-    int GetSQUAD_DAMAGE(void) const{
-        return SQUAD_DAMAGE;
-    }
+	int GetSQUAD_DAMAGE(void) const;
     
     //HEALTH
     /*GetHEALTHONE - get 1 person HEALTH(no BUFF)*/
-    int GetHEALTH_ONE(void) const {
-        return HEALTH_ONE;
-    }
+	int GetHEALTH_ONE(void) const;
     //Get BUFF HEALTH
-    int GetBUFF_HEALTH(void) const{
-        return BUFF_HEALTH;
-    }
+	int GetBUFF_HEALTH(void) const;
     //Get health of the last unit is left (there can not be more than hp at the top squad + buffs)
-    int GetLEFT_HEALTH(void) const{
-        return LEFT_HEALTH;
-    }
+	int GetLEFT_HEALTH(void) const;
     /*GetSQUAD_HEALTH - get unit SQUAD_HEALTH(+BUFF)*/
-    int GetSQUAD_HEALTH(void) const {
-        return SQUAD_HEALTH;
-    }
+	int GetSQUAD_HEALTH(void) const;
     
     //TRAVEL in map
     /*GetTRAVEL_DISTANCE - get unit SPEED(type - only size_t,no BUFF)*/
-    int GetTRAVEL_DISTANCE(void) const {
-        return TRAVEL_DISTANCE;
-    }
+	int GetTRAVEL_DISTANCE(void) const;
     // Get BUFF travel distance
-    int GetBUFF_TRAVEL(void) const{
-        return BUFF_TRAVEL;
-    }
+	int GetBUFF_TRAVEL(void) const;
     // Get travel distance left(+ BUFF)
-    int GetLEFT_TRAVEL(void) const{
-        return LEFT_TRAVEL;
-    }
+	int GetLEFT_TRAVEL(void) const;
     
     //POSITION in map
     //Get position in map
-    Tile GetPOS(void) const{
-        return POS;
-    }
+	Tile GetPOS(void) const;
     
     
     
@@ -187,71 +112,40 @@ public:
     
     
     
-    //HEROES
-    //Set unit in HEROES
-    void SetHERO(Hero hero){
-        HERO = hero;
-    }
     
     //DAMAGE
     /*SetDAMAGE - Set 1 person DAMAGE(AVERAGE, no BUFF_DAMAGE)*/
-    void SetDAMAGE_ONE(int damage_one){
-        DAMAGE_ONE = damage_one;
-    }
+	void SetDAMAGE_ONE(int damage_one);
     /*SetTYPE_DAMAGE - set unit TYPE_DAMAGE*/
-    void SetTYPE_DAMAGE(int type_damage){
-        TYPE_DAMAGE = type_damage;
-    }
+	void SetTYPE_DAMAGE(int type_damage);
     //Set BUFF DAMAGE of 1 person
-    void SetBUFF_DAMAGE(int buff_damage){
-        BUFF_DAMAGE = buff_damage;
-    }
+	void SetBUFF_DAMAGE(int buff_damage);
     //Set maximum deviation of damage from average (in percent)
-    void SetDEVATION_DAMAGE(int devation_damage){
-        DEVATION_DAMAGE = devation_damage;
-    }
+	void SetDEVATION_DAMAGE(int devation_damage);
     //Set squad average damage on squad (+BUFF_DAMAGE)
-    void SetSQUAD_DAMAGE(int squad_damage){
-        SQUAD_DAMAGE = squad_damage;
-    }
+	void SetSQUAD_DAMAGE(int squad_damage);
     
     //HEALTH
     /*SetHEALTHONE - set 1 person HEALTH(no BUFF)*/
-    void SetHEALTH_ONE(int health_one){
-        HEALTH_ONE = health_one;
-    }
+	void SetHEALTH_ONE(int health_one);
     //Set BUFF HEALTH
-    void SetBUFF_HEALTH(int buff_health){
-        BUFF_HEALTH = buff_health;
-    }
+	void SetBUFF_HEALTH(int buff_health);
     //Set health of the last unit is left (there can not be more than hp at the top squad + buffs)
-    void SetLEFT_HEALTH(int left_health){
-        LEFT_HEALTH = left_health;
-    }
+	void SetLEFT_HEALTH(int left_health);
     /*SetSQUAD_HEALTH - set unit SQUAD_HEALTH(+BUFF)*/
-    void SetSQUAD_HEALTH(int squad_health){
-        SQUAD_HEALTH = squad_health;
-    }
+	void SetSQUAD_HEALTH(int squad_health);
     
     //TRAVEL in map
     /*SetTRAVEL_DISTANCE - set unit SPEED(type - only size_t,no BUFF)*/
-    void SetTRAVEL_DISTANCE(int travel_distance){
-        TRAVEL_DISTANCE = travel_distance;
-    }
+	void SetTRAVEL_DISTANCE(int travel_distance);
     // Set BUFF travel distance
-    void SetBUFF_TRAVEL(int buff_travel){
-        BUFF_TRAVEL = buff_travel;
-    }
+	void SetBUFF_TRAVEL(int buff_travel);
     // Set travel distance left(+ BUFF)
-    void SetLEFT_TRAVEL(int left_travel){
-        LEFT_TRAVEL = left_travel;
-    }
+	void SetLEFT_TRAVEL(int left_travel);
     
     //POSITION in map
     //Set position in map
-    void SetPOS(Tile pos){
-        POS = pos;
-    }
+	void SetPOS(Tile pos);
     
     
     
@@ -265,179 +159,20 @@ public:
     
     
     /*Squad_Reinforcement - add people to the squad(Beginner - number of people)*/
-    void Squad_Reinforcement(int Beginner) {
-        SetQUANTITY(GetQUANTITY() + Beginner);
-        SetSQUAD_HEALTH(GetSQUAD_HEALTH() + Beginner * (GetHEALTH_ONE()+GetBUFF_HEALTH()));
-    }
+	void Squad_Reinforcement(int Beginner);
     
     /*Squad_Departed - delete people from squad(Departed_People - number of  deleted people)*/
-    void Squad_Departed(int Departed_People) {
-        if (Departed_People < GetQUANTITY()) {
-            SetQUANTITY(GetQUANTITY() - Departed_People);
-            SetSQUAD_HEALTH(GetSQUAD_HEALTH() - Departed_People * (GetHEALTH_ONE()+GetBUFF_HEALTH()));
-        }
-        else {
-            SetQUANTITY(0);
-            SetSQUAD_HEALTH(0);
-        }
-    }
+	void Squad_Departed(int Departed_People);
     
     //Attack_Damage - damage by unit
-    int Attack_Damage(void){
-        int Attack = 0;
-        Attack = (GetDAMAGE_ONE() + GetBUFF_DAMAGE()) * GetQUANTITY();
-        srand(time(NULL));
-        float c = 0;
-        for(int i = 0; i<3;i++){
-            c = c + rand() % GetDEVATION_DAMAGE() - (float)GetDEVATION_DAMAGE() / 2;
-        }
-        if (c >= (float) GetDEVATION_DAMAGE() / 2){std::cout<<"Luck"<<std::endl;}
-        if (c <= - (float) GetDEVATION_DAMAGE() / 2){std::cout<<"Fail"<<std::endl;}
-        float Final_Damage = Attack + (float) (c/100) * Attack;
-        return (int)Final_Damage;
-    }
+	int Attack_Damage(void);
     //    take damage
-    void Take_Damage(int Taken_Damage){
-        if(GetSQUAD_HEALTH() <= Taken_Damage){
-            SetQUANTITY(0);
-            SetSQUAD_HEALTH(0);
-            SetLEFT_HEALTH(0);
-        }else{
-            SetSQUAD_HEALTH(GetSQUAD_HEALTH() - Taken_Damage);
-            int NEW_QUANTITY = 1+ (int)GetSQUAD_HEALTH()/(GetHEALTH_ONE()+GetBUFF_HEALTH());
-            SetQUANTITY(NEW_QUANTITY);
-            SetLEFT_HEALTH(GetSQUAD_HEALTH() - (GetQUANTITY()-1)*(GetHEALTH_ONE()+GetBUFF_HEALTH()));
-        }
-    }
-	void Military::Move(direction dir, Map field) {
-		if (dir == direction::up) {
-			if (POS.Get_y() + 1 <= field.Get_size_y()) {
-				if (field.Get_Tile(POS.Get_x(), POS.Get_y() + 1).is_passage()) {
-					tile_type next = field.Get_Tile(POS.Get_x(), POS.Get_y() + 1).Get_type();
-					if (next == forest && LEFT_TRAVEL >= 2) {
-						LEFT_TRAVEL -= 2;
-						POS = field.Get_Tile(POS.Get_x(), POS.Get_y() + 1);
-					}
-					if (next != forest && LEFT_TRAVEL >= 1) {
-						LEFT_TRAVEL -= 1;
-						POS = field.Get_Tile(POS.Get_x(), POS.Get_y() + 1);
-					}
-				}
-			}
-		}
-		if (dir == direction::down) {
-			if (POS.Get_y() - 1 >= 1) {
-				if (field.Get_Tile(POS.Get_x(), POS.Get_y() - 1).is_passage()) {
-					tile_type next = field.Get_Tile(POS.Get_x(), POS.Get_y() - 1).Get_type();
-					if (next == forest && LEFT_TRAVEL >= 2) {
-						LEFT_TRAVEL -= 2;
-						POS = field.Get_Tile(POS.Get_x(), POS.Get_y() - 1);
-					}
-					if (next != forest && LEFT_TRAVEL >= 1) {
-						LEFT_TRAVEL -= 1;
-						POS = field.Get_Tile(POS.Get_x(), POS.Get_y() - 1);
-					}
-				}
-			}
-		}
-		if (dir == direction::left) {
-			if (POS.Get_x() - 1 >= 1) {
-				if (field.Get_Tile(POS.Get_x() - 1, POS.Get_y()).is_passage()) {
-					tile_type next = field.Get_Tile(POS.Get_x() - 1, POS.Get_y()).Get_type();
-					if (next == forest && LEFT_TRAVEL >= 2) {
-						LEFT_TRAVEL -= 2;
-						POS = field.Get_Tile(POS.Get_x() - 1, POS.Get_y());
-					}
-					if (next != forest && LEFT_TRAVEL >= 1) {
-						LEFT_TRAVEL -= 1;
-						POS = field.Get_Tile(POS.Get_x() - 1, POS.Get_y());
-					}
-				}
-			}
-		}
-		if (dir == direction::right) {
-			if (POS.Get_x() + 1 <= field.Get_size_x()) {
-				if (field.Get_Tile(POS.Get_x() + 1, POS.Get_y()).is_passage()) {
-					tile_type next = field.Get_Tile(POS.Get_x() + 1, POS.Get_y()).Get_type();
-					if (next == forest && LEFT_TRAVEL >= 2) {
-						LEFT_TRAVEL -= 2;
-						POS = field.Get_Tile(POS.Get_x() + 1, POS.Get_y());
-					}
-					if (next != forest && LEFT_TRAVEL >= 1) {
-						LEFT_TRAVEL -= 1;
-						POS = field.Get_Tile(POS.Get_x() + 1, POS.Get_y());
-					}
-				}
-			}
-		}
-		if (dir == direction::up_left) {
-			if (POS.Get_y() + 1 <= field.Get_size_y() && POS.Get_x() - 1 >= 1) {
-				if (field.Get_Tile(POS.Get_x() - 1, POS.Get_y() + 1).is_passage()) {
-					tile_type next = field.Get_Tile(POS.Get_x() - 1, POS.Get_y() + 1).Get_type();
-					if (next == forest && LEFT_TRAVEL >= 3) {
-						LEFT_TRAVEL -= 3;
-						POS = field.Get_Tile(POS.Get_x() - 1, POS.Get_y() + 1);
-					}
-					if (next != forest && LEFT_TRAVEL >= 2) {
-						LEFT_TRAVEL -= 2;
-						POS = field.Get_Tile(POS.Get_x() - 1, POS.Get_y() + 1);
-					}
-				}
-			}
-		}
-		if (dir == direction::up_right) {
-			if (POS.Get_y() + 1 <= field.Get_size_y() && POS.Get_x() + 1 <= field.Get_size_x()) {
-				if (field.Get_Tile(POS.Get_x() + 1, POS.Get_y() + 1).is_passage()) {
-					tile_type next = field.Get_Tile(POS.Get_x() + 1, POS.Get_y() + 1).Get_type();
-					if (next == forest && LEFT_TRAVEL >= 3) {
-						LEFT_TRAVEL -= 3;
-						POS = field.Get_Tile(POS.Get_x() + 1, POS.Get_y() + 1);
-					}
-					if (next != forest && LEFT_TRAVEL >= 2) {
-						LEFT_TRAVEL -= 2;
-						POS = field.Get_Tile(POS.Get_x() + 1, POS.Get_y() + 1);
-					}
-				}
-			}
-		}
-		if (dir == direction::down_left) {
-			if (POS.Get_y() - 1 >= 1 && POS.Get_x() - 1 >= 1) {
-				if (field.Get_Tile(POS.Get_x() - 1, POS.Get_y() - 1).is_passage()) {
-					tile_type next = field.Get_Tile(POS.Get_x() - 1, POS.Get_y() - 1).Get_type();
-					if (next == forest && LEFT_TRAVEL >= 3) {
-						LEFT_TRAVEL -= 3;
-						POS = field.Get_Tile(POS.Get_x() - 1, POS.Get_y() - 1);
-					}
-					if (next != forest && LEFT_TRAVEL >= 2) {
-						LEFT_TRAVEL -= 2;
-						POS = field.Get_Tile(POS.Get_x() - 1, POS.Get_y() - 1);
-					}
-				}
-			}
-		}
-		if (dir == direction::down_right) {
-			if (POS.Get_y() - 1 >= 1 && POS.Get_x() + 1 <= field.Get_size_x()) {
-				if (field.Get_Tile(POS.Get_x() + 1, POS.Get_y() - 1).is_passage()) {
-					tile_type next = field.Get_Tile(POS.Get_x() + 1, POS.Get_y() - 1).Get_type();
-					if (next == forest && LEFT_TRAVEL >= 3) {
-						LEFT_TRAVEL -= 3;
-						POS = field.Get_Tile(POS.Get_x() + 1, POS.Get_y() - 1);
-					}
-					if (next != forest && LEFT_TRAVEL >= 2) {
-						LEFT_TRAVEL -= 2;
-						POS = field.Get_Tile(POS.Get_x() + 1, POS.Get_y() - 1);
-					}
-				}
-			}
-		}
-	}
-    
-    
-    
+	void Take_Damage(int Taken_Damage);
+	/* Move_Mil - move military unit on 1 tile if that is possible (dir - direction to move;
+	field - map, where unit moves)*/
+	void Move_Mil(direction dir, Map field);
     /*Military Destructor*/
-    virtual ~Military() {
-        std::cout << "Military died, in quantity " << GetQUANTITY() << std::endl;
-    }
+	virtual ~Military();
 };
 
 #endif

@@ -2,7 +2,6 @@
 #include "Save.h"
 #include "Unit.h"
 #include "Military.h"
-#include "Civilian.h"
 #include "Hero.h"
 int main() {
     //Save Save_1("Save_1", "//Users/artemkozmin/Documents/опнейр/опнейр/Saved_Maps\\");
@@ -19,12 +18,10 @@ int main() {
     Hero Napoleon("Napoleon", Test_Field_2, 2, 3, "Dmitrii");
     //    Military( Hero hero, int quantity = 0, int health_one = 0, int left_health=0, int buff_health = 0, int damage_one = 0, int buff_damage = 0, int type_damage = 0, int devation_damage = 0, int travel_distance = 0, int buff_travel = 0, int left_travel = 0) :Unit(quantity){
     //
-    Unit *latnic = new Military(Napoleon, 100, 10, 12, 2,3,-1,1,20,3,2,5);
-    
+	Napoleon.add_Unit(Military(100, 10, 12, 2, 3, -1, 1, 20, 3, 2, 5));
     Napoleon.Print();
-    Napoleon.Move(direction::down_right);
+    Napoleon.Move_Hero(direction::down);
     Napoleon.Print();
-    delete latnic;
     return 0;
 }
 

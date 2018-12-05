@@ -8,26 +8,19 @@ protected:
     int QUANTITY;
 public:
     /*Unit Constructor(quantity - number of people;)*/
-    Unit(int quantity = 0){
-        QUANTITY = quantity;
-    }
+	Unit(int quantity = 0);
     
     
     /*GetQUANTITY - get unit QUANTITY*/
-    int GetQUANTITY(void) const {
-        return QUANTITY;
-    }
+	int GetQUANTITY(void) const;
     
     
     
     /*SetQUANTITY - set unit QUANTITY*/
-    void SetQUANTITY(int quantity) {
-        QUANTITY = quantity;
-    }
+	void SetQUANTITY(int quantity);
     
     
     /*Unit Destructor*/
-    virtual ~Unit() {
-    }
+	virtual ~Unit();
 };
 #endif
