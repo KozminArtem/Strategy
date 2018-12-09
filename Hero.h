@@ -45,5 +45,11 @@ public:
 	void Move_Hero(direction dir);
 	/* add_Unit - add unit to hero's army in vector army on last place(unit - unit to add)*/
 	void add_Unit(Unit unit);
+	/*makes level bigger on 1 point*/
+	void add_level();
+	/*makes level bigger on 1 point*/
+	void add_exp();
+	/* delete_Unit - delete last "Unit" in vector "army" */
+	void delete_Unit();
 };
 #endif
