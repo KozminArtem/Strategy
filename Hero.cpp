@@ -33,3 +33,15 @@ void Hero::Print() {
 void Hero::add_Unit(Unit unit) {
 	army.push_back(unit);
 }
+void Hero::add_level()
+{
+	level += 1;
+}
+void Hero::add_exp()
+{
+	exp += 1;
+}
+void Hero::delete_Unit()
+{
+	army.pop_back();
+}
