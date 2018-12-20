@@ -10,7 +10,7 @@ private:
 	static std::vector<std::string> NAME;
 public:
 	//Resource constructor
-	Resource(int food, int wood, int stone, int free_people, int busy_people){
+	Resource(int food = 0, int wood = 0, int stone = 0, int free_people = 0, int busy_people = 0){
 		RESOURCE = std::vector<int>();
 		RESOURCE.push_back(food);
 		RESOURCE.push_back(wood);

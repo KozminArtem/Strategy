@@ -2,9 +2,10 @@
 #define __TOWN_HALL_HPP__
 #include "Building.hpp"
 class Town_Hall : public Building{
+private:
+	static Resource REQUIRED_TO_BUILD;
+	static Resource REQUIRED_TO_UPGRADE;
 public:
-	Town_Hall() : Building(){
-		REQUIRED_TO_UPGRADE = { 1000, 100, 5000, 5000, 0, 0 };
-	}
+	Town_Hall();
 };
 #endif
