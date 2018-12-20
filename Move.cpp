@@ -9,7 +9,7 @@ void Move(direction dir, Map field, Tile &pos, int &move) {
 	if (dir == direction::up_right) nextpos = field.Get_Tile(pos.Get_x() + 1, pos.Get_y() + 1);
 	if (dir == direction::down_left) nextpos = field.Get_Tile(pos.Get_x() - 1, pos.Get_y() - 1);
 	if (dir == direction::down_right) nextpos = field.Get_Tile(pos.Get_x() + 1, pos.Get_y() - 1);
-	if (pos.Get_y() - 1 >= 1 && pos.Get_y() + 1 <= field.Get_size_y() && pos.Get_x() - 1 >= 1 && pos.Get_x() + 1 <= field.Get_size_x()) {
+	if (nextpos.Get_y() >= 1 && nextpos.Get_y() <= field.Get_size_y() && nextpos.Get_x() >= 1 && nextpos.Get_x() <= field.Get_size_x()) {
 		if (nextpos.is_passage()) {
 			int spend_move;
 			if (dir == direction::up || dir == direction::down || dir == direction::left || dir == direction::right) {
@@ -22,9 +22,7 @@ void Move(direction dir, Map field, Tile &pos, int &move) {
 			}
 			if (move >= spend_move) {
 				move -= spend_move;
-				pos.Set_is_placed(false);
 				pos = nextpos;
-				pos.Set_is_placed(true);
 			}
 		}
 	}

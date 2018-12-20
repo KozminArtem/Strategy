@@ -19,8 +19,22 @@ int main() {
     //    Military( Hero hero, int quantity = 0, int health_one = 0, int left_health=0, int buff_health = 0, int damage_one = 0, int buff_damage = 0, int type_damage = 0, int devation_damage = 0, int travel_distance = 0, int buff_travel = 0, int left_travel = 0) :Unit(quantity){
     //
 	Napoleon.add_Unit(Military(100, 10, 12, 2, 3, -1, 1, 20, 3, 2, 5));
-    Napoleon.Print();
-    Napoleon.Move_Hero(direction::down);
+	std::string c;
+	direction dir;
+	while (1 == 1){
+		Napoleon.Print();
+		Test_Field_2.Print();
+		std::cin >> c;
+		if (c == "w") dir = direction::up;
+		if (c == "s") dir = direction::down;
+		if (c == "a") dir = direction::left;
+		if (c == "d") dir = direction::right;
+		if (c == "q") dir = direction::up_left;
+		if (c == "e") dir = direction::up_right;
+		if (c == "z") dir = direction::down_left;
+		if (c == "c") dir = direction::down_right;
+		Napoleon.Move_Hero(dir);
+	}
     Napoleon.Print();
     return 0;
 }

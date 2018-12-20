@@ -3,11 +3,10 @@ Hero::Hero(std::string Name, Map Field, int x, int y, std::string Player){
 	name = Name;
 	player = Player;
 	pos = Field.Get_Tile(x, y);
-	move_hero = 3;
+	move_hero = 10;
 	level = 1;
 	exp = 0;
 	field = Field;
-	pos.Set_is_placed(true);
 	army = std::vector<Unit>();
 	buff_army = std::vector<float>();
 	buff_resource = std::vector<float>();

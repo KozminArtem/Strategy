@@ -12,8 +12,6 @@ private:
 	int y;
 	/* Tile landscape type*/
 	tile_type type;
-	/* Does this tile contains object*/
-	bool is_placed;
 public:
 	/* Tile Constructor(pos_x - x position of the tile;
 	pos_y - y position of the tile;
@@ -31,13 +29,9 @@ public:
 	void Set_y(int Y);
 	/* Set_type - set type of the tile(type - landscape to set)*/
 	void Set_type(tile_type type);
-	/* set - placed object on tile or not*/
-	void Set_is_placed(bool is_pl = true);
 	/* Print - print tile(out - stream to print (cout by default))*/
 	void Print(std::ostream& out = std::cout);
 	/* is_passage - True - hero can go trought tile; False - not*/
 	bool is_passage();
-	/* Get_is_placed - get - placed object on tile or not*/
-	bool Get_is_placed();
 };
 #endif
