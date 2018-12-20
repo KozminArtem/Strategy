@@ -11,19 +11,18 @@ private:
 public:
 	//Resource constructor
 	Resource(int food, int wood, int stone, int free_people, int busy_people){
-		std::vector<int> res();
-		res.push_back(food);
-		res.push_back(wood);
-		res.push_back(stone);
-		res.push_back(free_people);
-		res.push_back(busy_people);
-		RESOURCE = res;
-		std::vector<std::string> name();
-		res.push_back("Food");
-		res.push_back("Wood");
-		res.push_back("Stone");
-		res.push_back("Free_people");
-		res.push_back("Busy_people");
+		RESOURCE = std::vector<int>();
+		RESOURCE.push_back(food);
+		RESOURCE.push_back(wood);
+		RESOURCE.push_back(stone);
+		RESOURCE.push_back(free_people);
+		RESOURCE.push_back(busy_people);
+		NAME = std::vector<std::string>();
+		NAME.push_back("Food");
+		NAME.push_back("Wood");
+		NAME.push_back("Stone");
+		NAME.push_back("Free_people");
+		NAME.push_back("Busy_people");
 	}
 	int Food(){
 		return RESOURCE[0];
