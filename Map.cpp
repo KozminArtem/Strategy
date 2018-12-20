@@ -1,4 +1,4 @@
-#include "Map.h"
+#include "Map.hpp"
 Map::Map(std::vector<std::vector<Tile>> map_data) {
 	size_y = map_data.size();
 	size_x = map_data[0].size();

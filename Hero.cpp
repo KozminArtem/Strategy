@@ -1,4 +1,4 @@
-#include "Hero.h"
+#include "Hero.hpp"
 Hero::Hero(std::string Name, Map Field, int x, int y, std::string Player){
 	name = Name;
 	player = Player;

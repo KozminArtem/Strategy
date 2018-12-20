@@ -1,4 +1,4 @@
-#include "Save.h"
+#include "Save.hpp"
 Save::Save(std::string save_n, std::string save_loc) {
 	std::ifstream read;
 	read.open(save_loc + save_n + ".txt");

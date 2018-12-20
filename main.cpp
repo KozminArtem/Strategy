@@ -1,8 +1,8 @@
-#include "Map.h"
-#include "Save.h"
-#include "Unit.h"
-#include "Military.h"
-#include "Hero.h"
+#include "Map.hpp"
+#include "Save.hpp"
+#include "Unit.hpp"
+#include "Military.hpp"
+#include "Hero.hpp"
 int main() {
     //Save Save_1("Save_1", "//Users/artemkozmin/Documents/опнейр/опнейр/Saved_Maps\\");
     Save Save_2("Save_2", "Saved_maps/"); ///Users/artemkozmin/Documents/опнейр/опнейр/

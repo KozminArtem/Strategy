@@ -1,4 +1,4 @@
-#include "Military.h"
+#include "Military.hpp"
 Military::Military(int quantity, int health_one, int left_health, int buff_health, int damage_one, int buff_damage, int type_damage, int devation_damage, int travel_distance, int buff_travel, int left_travel) :Unit(quantity) {
 
 	//DAMAGE
