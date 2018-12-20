@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 #include <cstdio>
-#include "Map.h"
+#include "Map.hpp"
 class Save {
 private:
 	//Save file

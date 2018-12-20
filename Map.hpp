@@ -3,7 +3,7 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
-#include "Tile.h"
+#include "Tile.hpp"
 /* Direction (left; right; up; down; up_left; up_right; down_left; down_right)*/
 enum class direction { left, right, up, down, up_left, up_right, down_left, down_right };
 class Map {

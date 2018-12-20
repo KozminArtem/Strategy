@@ -1,6 +1,6 @@
 #ifndef __MOVE_HPP__ 
 #define __MOVE_HPP__
-#include "Map.h"
+#include "Map.hpp"
 /* Move - move object on 1 tile if that is possible(dir - direction to move;
 field - map, where you heed to move;
 pos - object tile position;

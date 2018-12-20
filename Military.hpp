@@ -1,7 +1,7 @@
 #ifndef __MILITARY_H__
 #define __MILITARY_H__
-#include "Unit.h"
-#include "Map.h"
+#include "Unit.hpp"
+#include "Map.hpp"
 #include "Move.hpp"
 #include <iostream>
 #include <stdio.h>

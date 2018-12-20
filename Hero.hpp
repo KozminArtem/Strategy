@@ -1,7 +1,7 @@
 #ifndef __HERO_H__ 
 #define __HERO_H__
-#include "Map.h"
-#include "Unit.h"
+#include "Map.hpp"
+#include "Unit.hpp"
 #include "Move.hpp"
 #include <iostream>
 #include <string>
