@@ -48,7 +48,7 @@ public:
 	/*makes level bigger on 1 point*/
 	void add_level();
 	/*makes level bigger on 1 point*/
-	void add_exp();
+	void add_exp(int point);
 	/* delete_Unit - delete last "Unit" in vector "army" */
 	void delete_Unit();
 };
