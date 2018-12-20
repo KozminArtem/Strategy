@@ -37,9 +37,9 @@ void Hero::add_level()
 {
 	level += 1;
 }
-void Hero::add_exp()
+void Hero::add_exp(int point)
 {
-	exp += 1;
+	exp += point;
 }
 void Hero::delete_Unit()
 {
