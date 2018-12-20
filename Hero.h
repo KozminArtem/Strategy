@@ -35,6 +35,7 @@ public:
 	x,y - his position;
 	player - player that have hero)*/
 	Hero(std::string Name, Map Field, int x, int y, std::string Player);
+    Hero();
 	/*Get_x - get x coordinate*/
 	int Get_x();
 	/*Get_y - get y coordinate*/
