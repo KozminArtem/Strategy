@@ -7,7 +7,7 @@
 /* Direction (left; right; up; down; up_left; up_right; down_left; down_right)*/
 enum class direction { left, right, up, down, up_left, up_right, down_left, down_right };
 class Map {
-private:
+protected:
 	/* tile_array - array of the tiles*/
 	std::vector<std::vector<Tile>> tile_array;
 	/* size_x - x size of the map*/
@@ -30,6 +30,5 @@ public:
 	/* Get_Tile - get tile with coordinates(x - x position of the tile;
 	y - y position of the tile)*/
 	Tile Get_Tile(int x, int y);
-
 };
 #endif

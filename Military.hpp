@@ -2,7 +2,6 @@
 #define __MILITARY_H__
 #include "Unit.hpp"
 #include "Map.hpp"
-#include "Move.hpp"
 #include <iostream>
 #include <stdio.h>
 #include <string>
@@ -39,9 +38,6 @@ protected:
     int BUFF_TRAVEL;
     // travel distance left(+ BUFF)
     int LEFT_TRAVEL;
-    
-    //Map position
-    Tile POS;
 public:
     /*Military Constructor(hero - hero that have unit;
      left_health - health of the last person is left(+BUFF_HEALTH);
@@ -97,10 +93,6 @@ public:
     // Get travel distance left(+ BUFF)
 	int GetLEFT_TRAVEL(void) const;
     
-    //POSITION in map
-    //Get position in map
-	Tile GetPOS(void) const;
-    
     
     
                                 /*  */
@@ -143,10 +135,6 @@ public:
     // Set travel distance left(+ BUFF)
 	void SetLEFT_TRAVEL(int left_travel);
     
-    //POSITION in map
-    //Set position in map
-	void SetPOS(Tile pos);
-    
     
     
                                 /*  */
@@ -170,7 +158,6 @@ public:
 	void Take_Damage(int Taken_Damage);
 	/* Move_Mil - move military unit on 1 tile if that is possible (dir - direction to move;
 	field - map, where unit moves)*/
-	void Move_Mil(direction dir, Map field);
     /*Military Destructor*/
 	virtual ~Military();
 };

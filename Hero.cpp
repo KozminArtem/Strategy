@@ -1,25 +1,31 @@
 #include "Hero.hpp"
-Hero::Hero(std::string Name, Map Field, int x, int y, std::string Player){
+Hero::Hero(std::string Name, int X, int Y, std::string Player){
 	name = Name;
 	player = Player;
-	pos = Field.Get_Tile(x, y);
+	x = X;
+	y = Y;
 	move_hero = 10;
 	level = 1;
 	exp = 0;
-	field = Field;
-	army = std::vector<Unit>();
+	army = std::vector<Military>();
 	buff_army = std::vector<float>();
 	buff_resource = std::vector<float>();
 }
 Hero::Hero(){};
 int Hero::Get_x() {
-	return pos.Get_x();
+	return x;
 }
 int Hero::Get_y() {
-	return pos.Get_y();
+	return y;
 }
-void Hero::Move_Hero(direction dir) {
-	Move(dir, field, pos, move_hero);
+int& Hero::Get_move() {
+	return move_hero;
+}
+void Hero::Set_x(int X) {
+	x = X;
+}
+void Hero::Set_y(int Y) {
+	y = Y;
 }
 void Hero::Print() {
 	std::cout << "Hero: " << name << std::endl;
@@ -27,10 +33,10 @@ void Hero::Print() {
 	std::cout << "\tLevel: " << level << std::endl;
 	std::cout << "\tExperience: " << exp << std::endl;
 	std::cout << "\tMoves: " << move_hero << std::endl;
-	std::cout << "\tPosition x: " << pos.Get_x() << std::endl;
-	std::cout << "\tPosition y: " << pos.Get_y() << std::endl;
+	std::cout << "\tPosition x: " << x << std::endl;
+	std::cout << "\tPosition y: " << y << std::endl;
 }
-void Hero::add_Unit(Unit unit) {
+void Hero::add_Unit(Military unit) {
 	army.push_back(unit);
 }
 void Hero::add_level()

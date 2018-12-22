@@ -20,10 +20,6 @@ Military::Military(int quantity, int health_one, int left_health, int buff_healt
 	BUFF_TRAVEL = buff_travel;
 	LEFT_TRAVEL = left_travel;
 
-	//POSITION
-	POS = Tile(0, 0);
-
-
 
 
 	std::cout << "Created new military unit." << std::endl;
@@ -73,9 +69,6 @@ int Military::GetBUFF_TRAVEL(void) const {
 int Military::GetLEFT_TRAVEL(void) const {
 	return LEFT_TRAVEL;
 }
-Tile Military::GetPOS(void) const {
-	return POS;
-}
 void Military::SetDAMAGE_ONE(int damage_one) {
 	DAMAGE_ONE = damage_one;
 }
@@ -111,9 +104,6 @@ void Military::SetBUFF_TRAVEL(int buff_travel) {
 }
 void Military::SetLEFT_TRAVEL(int left_travel) {
 	LEFT_TRAVEL = left_travel;
-}
-void Military::SetPOS(Tile pos) {
-	POS = pos;
 }
 void Military::Squad_Reinforcement(int Beginner) {
 	SetQUANTITY(GetQUANTITY() + Beginner);
@@ -154,9 +144,6 @@ void Military::Take_Damage(int Taken_Damage) {
 		SetQUANTITY(NEW_QUANTITY);
 		SetLEFT_HEALTH(GetSQUAD_HEALTH() - (GetQUANTITY() - 1)*(GetHEALTH_ONE() + GetBUFF_HEALTH()));
 	}
-}
-void Military::Move_Mil(direction dir, Map field) {
-	Move(dir, field, POS, LEFT_TRAVEL);
 }
 Military::~Military() {
 	std::cout << "Military died, in quantity " << GetQUANTITY() << std::endl;
