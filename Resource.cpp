@@ -1,12 +1,12 @@
 #include "Resource.hpp"
-std::vector<std::string> Resource::NAME = { "Food","Wood","Stone","Free people","Busy people" };
-Resource::Resource(int food, int wood, int stone, int free_people, int busy_people) {
+std::vector<std::string> Resource::NAME = { "Food","Wood","Iron","Gold","People"};
+Resource::Resource(int food, int wood, int iron, int gold, int people) {
 	RESOURCE = std::vector<int>();
 	RESOURCE.push_back(food);
 	RESOURCE.push_back(wood);
-	RESOURCE.push_back(stone);
-	RESOURCE.push_back(free_people);
-	RESOURCE.push_back(busy_people);
+	RESOURCE.push_back(iron);
+	RESOURCE.push_back(gold);
+	RESOURCE.push_back(people);
 }
 Resource::Resource(const Resource& R) {
 	RESOURCE = R.RESOURCE;
@@ -23,13 +23,13 @@ int Resource::Food() {
 int Resource::Wood() {
 	return RESOURCE[1];
 }
-int Resource::Stone() {
+int Resource::Iron() {
 	return RESOURCE[2];
 }
-int Resource::Free_people() {
+int Resource::Gold() {
 	return RESOURCE[3];
 }
-int Resource::Busy_people() {
+int Resource::People() {
 	return RESOURCE[4];
 }
 Resource Resource::operator+(Resource R) {

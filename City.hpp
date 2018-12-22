@@ -19,7 +19,7 @@ protected:
     std::string PLAYER;
    // std::vector<building> BUILD;
     std::vector<Unit> CIVILIAN;
-    //    resources: food tree rock busypeople freepeople
+    //    resources: food tree stone freepeople busypeople
     std::vector<int> RESOURCES;
     std::vector<Hero> HEROES_INSIDE;
     Hero POLICMEN;
@@ -46,4 +46,4 @@ public:
     void SetHEROES_INSIDE(std::vector<Hero> heroes_inside);
     void SetPOLICMEN(Hero policmen);
 };
-#endif /* Citi_hpp */
+#endif /* City_hpp */

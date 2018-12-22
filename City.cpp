@@ -16,7 +16,6 @@ City::City(Map Field, int X, int Y, int Size_city_map, std::string Name_city, st
 }
 
 
-
    
 
 

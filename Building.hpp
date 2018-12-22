@@ -8,7 +8,7 @@ protected:
 	//Units that building own
 	std::vector<Unit> OWN;
 	//Resource array to build
-	Resource REQUIRED_TO_BUILD; // 1-food, 2-wood, 3-stone, 4-free people, 5-busy people
+	Resource REQUIRED_TO_BUILD; // 1-food, 2-wood, 3-iron, 4-gold, 5-people
 	//Resource array to upgrade
 	Resource REQUIRED_TO_UPGRADE;
 	//Resources that building have
@@ -22,5 +22,9 @@ public:
 	Resource GIVE_RESOURCES();
 	//ADD_RESOURCES - add resuurses to the building
 	void ADD_RESOURCES(Resource add_resourses);
+	//Upgrade - upgrade building
+	virtual void Upgrade() = 0;
+	//Generate_resource - generate resource at building
+	virtual void Generate_resource() = 0;
 };
 #endif

@@ -4,13 +4,13 @@
 #include <string>
 class Resource{
 private:
-	// 1-food, 2-wood, 3-stone, 4-free people, 5-busy people
+	// 1-food, 2-wood, 3-iron, 4-gold, 5-people
 	std::vector<int> RESOURCE;
 	//Names of resources
 	static std::vector<std::string> NAME;
 public:
 	//Resource constructor
-	Resource(int food = 0, int wood = 0, int stone = 0, int free_people = 0, int busy_people = 0);
+	Resource(int food = 0, int wood = 0, int iron = 0, int gold = 0, int people = 0);
 	//Resource copy constructor
 	Resource(const Resource& R);
 	//Get_Resources - Get vector of resources as std vector
@@ -22,11 +22,11 @@ public:
 	//Wood - Return value of wood resources
 	int Wood();
 	//Stone - Return value of stone resources
-	int Stone();
+	int Iron();
 	//Free_people - Return value of free people resources
-	int Free_people();
+	int Gold();
 	//Busy_people - Return value of busy people resources
-	int Busy_people();
+	int People();
 	Resource operator+(Resource R);
 	Resource operator=(const Resource& R);
 	Resource operator=(const Resource&& R);
