@@ -6,38 +6,29 @@ class Resource{
 private:
 	// 1-food, 2-wood, 3-stone, 4-free people, 5-busy people
 	std::vector<int> RESOURCE;
-	//
+	//Names of resources
 	static std::vector<std::string> NAME;
 public:
 	//Resource constructor
-	Resource(int food = 0, int wood = 0, int stone = 0, int free_people = 0, int busy_people = 0){
-		RESOURCE = std::vector<int>();
-		RESOURCE.push_back(food);
-		RESOURCE.push_back(wood);
-		RESOURCE.push_back(stone);
-		RESOURCE.push_back(free_people);
-		RESOURCE.push_back(busy_people);
-		NAME = std::vector<std::string>();
-		NAME.push_back("Food");
-		NAME.push_back("Wood");
-		NAME.push_back("Stone");
-		NAME.push_back("Free_people");
-		NAME.push_back("Busy_people");
-	}
-	int Food(){
-		return RESOURCE[0];
-	}
-	int Wood(){
-		return RESOURCE[1];
-	}
-	int Stone(){
-		return RESOURCE[2];
-	}
-	int Free_people(){
-		return RESOURCE[3];
-	}
-	int Busy_people(){
-		return RESOURCE[4];
-	}
+	Resource(int food = 0, int wood = 0, int stone = 0, int free_people = 0, int busy_people = 0);
+	//Resource copy constructor
+	Resource(const Resource& R);
+	//Get_Resources - Get vector of resources as std vector
+	std::vector<int> Get_Resources();
+	//Set_Resources - Get vector of resources as std vector
+	void Set_Resources(std::vector<int> R);
+	//Food - Return value of food resources
+	int Food();
+	//Wood - Return value of wood resources
+	int Wood();
+	//Stone - Return value of stone resources
+	int Stone();
+	//Free_people - Return value of free people resources
+	int Free_people();
+	//Busy_people - Return value of busy people resources
+	int Busy_people();
+	Resource operator+(Resource R);
+	Resource operator=(const Resource& R);
+	Resource operator=(const Resource&& R);
 };
 #endif

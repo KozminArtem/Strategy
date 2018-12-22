@@ -1,11 +1,3 @@
-//
-//  City.hpp
-//  ПРОЕКТ
-//
-//  Created by Артем Козьмин on 20/12/2018.
-//  Copyright © 2018 Артем Козьмин. All rights reserved.
-//
-
 #ifndef City_hpp
 #define City_hpp
 #include "Map.hpp"
@@ -20,9 +12,8 @@
 #include <stdio.h>
 class City {
 protected:
-    const Tile POS;
-    const Map FIELD;
-  
+    Tile POS;
+    Map FIELD;
     int SIZE_CITY_MAP;
     std::string NAME_CITY;
     std::string PLAYER;

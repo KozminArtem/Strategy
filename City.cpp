@@ -1,11 +1,3 @@
-//
-//  City.cpp
-//  ПРОЕКТ
-//
-//  Created by Артем Козьмин on 20/12/2018.
-//  Copyright © 2018 Артем Козьмин. All rights reserved.
-//
-
 #include "City.hpp"
 #include <iostream>
 #include <string>
