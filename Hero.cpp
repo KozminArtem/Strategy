@@ -7,7 +7,7 @@ Hero::Hero(std::string Name, int X, int Y, std::string Player){
 	move_hero = 10;
 	level = 1;
 	exp = 0;
-	army = std::vector<Military>();
+	army = std::vector<Military&>();
 	buff_army = std::vector<float>();
 	buff_resource = std::vector<float>();
 }
@@ -36,7 +36,7 @@ void Hero::Print() {
 	std::cout << "\tPosition x: " << x << std::endl;
 	std::cout << "\tPosition y: " << y << std::endl;
 }
-void Hero::add_Unit(Military unit) {
+void Hero::add_Unit(Military& unit) {
 	army.push_back(unit);
 }
 void Hero::add_level()
@@ -50,4 +50,7 @@ void Hero::add_exp(int point)
 void Hero::delete_Unit()
 {
 	army.pop_back();
+}
+std::vector<Military&> Hero::Get_Army() {
+	return army;
 }

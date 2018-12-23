@@ -9,7 +9,7 @@ private:
 	std::vector<std::pair< Military&, Tile>> MILILARY;
 public:
 	//Army constructor
-	Army(Hero leader);
-	Tile Military_location(Military unit);
+	Army(Hero& leader = Hero());
+	Tile Military_location(std::pair< Military&, Tile> current_pair);
 };
 #endif

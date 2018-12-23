@@ -17,7 +17,7 @@ private:
 	// Player that have hero
 	std::string player;
 	// Hero army
-	std::vector<Military> army;
+	std::vector<Military&> army;
 	// Bonuses on army
 	std::vector<float> buff_army;
 	// Experience
@@ -47,12 +47,14 @@ public:
 	/*Print - print hero status*/
 	void Print();
 	/* add_Unit - add unit to hero's army in vector army on last place(unit - unit to add)*/
-	void add_Unit(Military unit);
+	void add_Unit(Military& unit);
 	/*makes level bigger on 1 point*/
 	void add_level();
 	/*makes level bigger on 1 point*/
 	void add_exp(int point);
 	/* delete_Unit - delete last "Unit" in vector "army" */
 	void delete_Unit();
+	/*Get_Army - get vector of units that attached to the hero*/
+	std::vector<Military&> Get_Army();
 };
 #endif
