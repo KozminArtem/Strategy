@@ -3,7 +3,7 @@
 #include <iostream>
 #include <fstream>
 /* Landscape type of the tile (plain; forest; mountain; lake; river_horizontal; river_vertical; river_bridge_horizontal; river_bridge_vertical)*/
-enum tile_type { plain, forest, mountain, lake, river_horizontal, river_vertical, river_bridge_horizontal, river_bridge_vertical};
+enum tile_type { plain, forest, mountain, lake};
 class Tile {
 private:
 	/* Tile x position*/

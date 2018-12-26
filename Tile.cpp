@@ -26,6 +26,6 @@ void Tile::Print(std::ostream& out) {
 	out << type;
 }
 bool Tile::is_passage() {
-	if (type == mountain || type == lake || type == river_horizontal || type == river_bridge_vertical) return false;
+	if (type == mountain || type == lake) return false;
 	else return true;
 }

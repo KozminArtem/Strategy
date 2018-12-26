@@ -1,12 +1,12 @@
 #include "Main_Map.hpp"
 Main_Map::Main_Map(std::vector<std::vector<Tile>> map_data) : Map(map_data) {
-	std::vector<Hero> HEROES;
+	HEROES = std::vector<Hero*>();
 }
 Main_Map::Main_Map(int size_X, int size_Y) : Map(size_X, size_Y) {
-	std::vector<Hero> HEROES;
+	HEROES = std::vector<Hero*>();
 }
-void Main_Map::Add_Hero(Hero add_hero) {
-	HEROES.push_back(add_hero);
+void Main_Map::Add_Hero(Hero& add_hero) {
+	HEROES.push_back(&add_hero);
 }
 void Main_Map::Move_Hero(Hero& hero, direction dir) {
 	Tile nextpos;

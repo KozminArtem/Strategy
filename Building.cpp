@@ -3,9 +3,10 @@ Building::Building() {
 	Resource OBTAINED_RESOURCES();
 	Resource REQUIRED_TO_BUILD();
 	Resource REQUIRED_TO_UPGRADE();
+	OWN = std::vector<Unit*>();
 }
-void Building::ADD_UNIT(Unit add_unit) {
-	OWN.push_back(add_unit);
+void Building::ADD_UNIT(Unit& add_unit) {
+	OWN.push_back(&add_unit);
 }
 Resource Building::GIVE_RESOURCES() {
 	Resource temp = OBTAINED_RESOURCES;

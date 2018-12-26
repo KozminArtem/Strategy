@@ -6,10 +6,15 @@
 #include <utility>
 class Army {
 private:
-	std::vector<std::pair< Military&, Tile>> MILILARY;
+	//1 - Military unit, 2 - unit tile location, 3 - unit moves
+	std::vector<std::pair<Military*,std::pair<Tile,int>>> MILILARY; 
 public:
 	//Army constructor
 	Army(Hero& leader = Hero());
-	Tile Military_location(std::pair< Military&, Tile> current_pair);
+	Tile Military_location(std::pair<Military*, std::pair<Tile, int>> current_pair);
+	std::pair<Military*, std::pair<Tile, int>>& Find_Military(Military* search);
+	int GetMove(Military* search);
+	void SetMove(Military* search, int move);
+	void SetTile(Military* search, Tile tile);
 };
 #endif

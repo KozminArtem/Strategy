@@ -1,8 +1,8 @@
 #ifndef City_hpp
 #define City_hpp
-#include "Map.hpp"
-#include "Unit.hpp"
+#include "Main_Map.hpp"
 #include "Hero.hpp"
+#include "Resource.hpp"
 #include <iostream>
 #include <stdio.h>
 #include <string>
@@ -13,27 +13,22 @@
 class City {
 protected:
     Tile POS;
-    Map FIELD;
+    Main_Map FIELD;
     int SIZE_CITY_MAP;
     std::string NAME_CITY;
     std::string PLAYER;
    // std::vector<building> BUILD;
-    std::vector<Unit> CIVILIAN;
-    //    resources: food tree stone freepeople busypeople
-    std::vector<int> RESOURCES;
-    std::vector<Hero> HEROES_INSIDE;
+    Resource CITY_RESOURCES;
+    std::vector<Hero*> HEROES_INSIDE;
     Hero POLICMEN;
 public:
-    City(Map Field, int X, int Y, int Size_city_map, std::string Name_city, std::string Player, std::vector<Unit> Civilian,std::vector<int> Resources,std::vector<Hero> Heroes_inside,Hero Policmen);
-    
+    City(Main_Map Field, int X, int Y, int Size_city_map, std::string Name_city, std::string Player,Hero Policmen, Resource Resources = Resource(0, 0, 0, 0, 0));
     Tile GetPOS(void) const;
     int GetSIZE_CITY_MAP(void) const;
     std::string GetNAME_CITY(void) const;
     std::string GetPLAYER;
     //std::vector<building> GetBUILD(void) const;
-    std::vector<Unit> GetCIVILIAN(void) const;
-    std::vector<int> GetRESOURCES(void) const;
-    std::vector<Hero> GetHEROES_INSIDE(void) const;
+    std::vector<Hero*> GetHEROES_INSIDE(void) const;
     Hero GetPOLICMEN(void) const;
     
     
@@ -41,9 +36,10 @@ public:
     void SetNAME_CITY(std::string name_city);
     void SetPLAYER(std::string player);
     //void GetBUILD(std::vector<building> build );
-    void SetCIVILIAN(std::vector<Unit> civilian);
-    void SetRESOURCES(std::vector<int> resources);
-    void SetHEROES_INSIDE(std::vector<Hero> heroes_inside);
+    void SetHEROES_INSIDE(std::vector<Hero*> heroes_inside);
     void SetPOLICMEN(Hero policmen);
+
+
+	void Add_Hero(Hero& hero);
 };
 #endif /* City_hpp */

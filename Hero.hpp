@@ -17,7 +17,7 @@ private:
 	// Player that have hero
 	std::string player;
 	// Hero army
-	std::vector<Military&> army;
+	std::vector<Military*> army;
 	// Bonuses on army
 	std::vector<float> buff_army;
 	// Experience
@@ -55,6 +55,6 @@ public:
 	/* delete_Unit - delete last "Unit" in vector "army" */
 	void delete_Unit();
 	/*Get_Army - get vector of units that attached to the hero*/
-	std::vector<Military&> Get_Army();
+	std::vector<Military*> Get_Army();
 };
 #endif

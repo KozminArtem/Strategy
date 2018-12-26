@@ -6,9 +6,9 @@
 class Battle_Map : public Map {
 private:
 	//Hero 1 that located on the map
-	Hero& HERO1;
+	Hero* HERO1;
 	//Hero 2 that located on the map
-	Hero& HERO2;
+	Hero* HERO2;
 	//positions of Hero 1 units
 	Army ARMY1;
 	//positions of Hero 2 units
@@ -16,7 +16,9 @@ private:
 public:
 	/* Battle_Map Constructor - create map from Tile array(size_X - x size of the map;
 	size_Y - y size of the map)*/
-	Battle_Map(Hero& hero1, Hero& hero2);
-	void Move_Unit(Military& unit, direction dir);
+	Battle_Map(Hero* hero1, Hero* hero2);
+	void Move_Unit(Army army, Military& unit, direction dir);
+	void Move_Unit_1(Military& unit, direction dir);
+	void Move_Unit_2(Military& unit, direction dir);
 };
 #endif
